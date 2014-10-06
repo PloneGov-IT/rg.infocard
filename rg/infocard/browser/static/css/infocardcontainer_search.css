@@ -1,0 +1,8 @@
+/* rg.infocard search styles */
+.listing.collection-listing {
+  width:100%;
+  margin:auto;
+}
+.formControls > input {
+  margin-right:2em;
+}

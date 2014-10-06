@@ -1,0 +1,13 @@
+/* infocard styles */
+#content-core > table {
+  width:100%;
+  margin:auto;
+}
+#content-core> table > tbody > tr > th,
+#content-core> table > tbody > tr > td
+{
+  text-align:left;
+  width:50%;
+  line-height: 2em;
+  font-size: 1.2em;
+}
