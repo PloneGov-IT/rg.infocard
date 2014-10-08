@@ -13,7 +13,7 @@ class View(BrowserView):
         ''' Return all the infos that are public
         '''
         return [
-            info for info in self.context.default_args
+            info for info in self.context.informations
             if info['arg_public']
         ]
 
@@ -23,7 +23,7 @@ class View(BrowserView):
         ''' Return all the infos that are public
         '''
         return [
-            info for info in self.context.default_args
+            info for info in self.context.informations
             if not info['arg_public']
         ]
 

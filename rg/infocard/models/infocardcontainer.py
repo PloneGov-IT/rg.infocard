@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from .base import IInfocardComplexField
-from collective.z3cform.datagridfield import DataGridFieldFactory, DictRow
+from .base import IInfocardComplexField, InfocardDataGridFieldFactory
+from collective.z3cform.datagridfield import DictRow
 from plone.dexterity.content import Container
 from plone.directives import form
 from plone.supermodel.model import Schema
@@ -34,7 +34,7 @@ class IInfocardcontainer(Schema):
         default=(),
         required=True,
     )
-    default_args = schema.List(
+    informations = schema.List(
         title=_(
             'label_default_infos',
             u"List of default informations"
@@ -47,7 +47,7 @@ class IInfocardcontainer(Schema):
         default=[],
         missing_value=[]
     )
-    form.widget(default_args=DataGridFieldFactory)
+    form.widget(informations=InfocardDataGridFieldFactory)
 
 
 @implementer(IInfocardcontainer)

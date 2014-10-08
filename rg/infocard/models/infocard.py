@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
-from .base import IInfocardComplexField
-from collective.z3cform.datagridfield import DataGridFieldFactory, DictRow
+from .base import IInfocardComplexField, InfocardDataGridFieldFactory
+from collective.z3cform.datagridfield import DictRow
 from plone.supermodel.model import Schema
 from plone.dexterity.content import Container
 from plone.directives import form
 from rg.infocard import rg_infocard_msgfactory as _
 from rg.infocard.vocs.infocard_locations import InfocardLocations
 from rg.infocard.vocs.infocard_recipients import InfocardRecipients
+from z3c.form.browser.checkbox import CheckBoxFieldWidget
 from zope.interface import implementer
 from zope import schema
 
@@ -35,10 +36,10 @@ class IInfocard(Schema):
         default=(),
         required=True,
     )
-    default_args = schema.List(
+    informations = schema.List(
         title=_(
-            'label_default_infos',
-            u"List of default informations"
+            'label_informations',
+            u"Informations"
         ),
         value_type=DictRow(
             title=_(u"infocard_info", "Info"),
@@ -48,17 +49,19 @@ class IInfocard(Schema):
         default=[],
         missing_value=[]
     )
-    form.widget(default_args=DataGridFieldFactory)
+    form.widget(informations=InfocardDataGridFieldFactory)
+    form.widget(locations=CheckBoxFieldWidget)
+    form.widget(recipients=CheckBoxFieldWidget)
 
 
-@form.default_value(field=IInfocard['default_args'])
-def default_default_args(data):
-    ''' Use the parent default_args
+@form.default_value(field=IInfocard['informations'])
+def default_informations(data):
+    ''' Use the parent informations
     '''
     from rg.infocard.models.infocardcontainer import Infocardcontainer
     for obj in data.context.aq_chain:
         if isinstance(obj, Infocardcontainer):
-            return obj.default_args
+            return obj.informations
     return []
 
 

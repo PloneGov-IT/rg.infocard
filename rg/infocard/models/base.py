@@ -1,8 +1,26 @@
 # -*- coding: utf-8 -*-
+from collective.z3cform.datagridfield.blockdatagridfield import BlockDataGridField  # noqa
+from plone.app.textfield import RichText
 from rg.infocard import rg_infocard_msgfactory as _
+from z3c.form.interfaces import IFieldWidget, IFormLayer
+from z3c.form.widget import FieldWidget
 from zope.interface import Interface
 from zope import schema
-from plone.app.textfield import RichText
+from zope.component import adapter
+from zope.interface import implementer
+
+
+class InfocardDataGridField(BlockDataGridField):
+    ''' Like its parent but with allow_reorder
+    '''
+    allow_reorder = True
+
+
+@adapter(schema.interfaces.IField, IFormLayer)
+@implementer(IFieldWidget)
+def InfocardDataGridFieldFactory(field, request):
+    """IFieldWidget factory for DataGridField."""
+    return FieldWidget(field, InfocardDataGridField(request))
 
 
 class IInfocardComplexField(Interface):
@@ -11,16 +29,13 @@ class IInfocardComplexField(Interface):
         default=u"",
         required=True,
     )
-    arg_value = schema.Text(
-        title=_("infocard_complex_field_value", "Value"),
-        default=u"",
-#        default_mime_type='text/structured',
-#        output_mime_type='text/html',
-#        allowed_mime_types=('text/structured', 'text/plain',),
-        required=False,
-    )
     arg_public = schema.Bool(
         title=_("infocard_complex_field_public", "Public?"),
         default=False,
         required=True,
+    )
+    arg_value = RichText(
+        title=_("infocard_complex_field_value", "Value"),
+        default=u"",
+        required=False,
     )
