@@ -1,6 +1,12 @@
 # -*- coding: utf-8 -*-
+from Acquisition import ImplicitAcquisitionWrapper
+from UserDict import UserDict
 from collective.z3cform.datagridfield.blockdatagridfield import BlockDataGridField  # noqa
 from plone.app.textfield import RichText
+from plone.app.textfield.interfaces import IRichText
+from plone.app.textfield.widget import IRichTextWidget, RichTextWidget
+from plone.app.z3cform.utils import closest_content
+from plone.directives import form
 from rg.infocard import rg_infocard_msgfactory as _
 from z3c.form.interfaces import IFieldWidget, IFormLayer
 from z3c.form.widget import FieldWidget
@@ -23,6 +29,26 @@ def InfocardDataGridFieldFactory(field, request):
     return FieldWidget(field, InfocardDataGridField(request))
 
 
+class ICellRichTextWidget(IRichTextWidget):
+    ''' Custom Rich Text widget to be used in DG cells
+    '''
+
+
+@implementer(ICellRichTextWidget)
+class CellRichTextWidget(RichTextWidget):
+    ''' Custom Rich Text widget to be used in DG cells
+    '''
+    def wrapped_context(self):
+        return self.form.parentForm.context
+
+
+@adapter(IRichText, IFormLayer)
+@implementer(ICellRichTextWidget)
+def CellRichTextFieldWidget(field, request):
+    """IFieldWidget factory for CellRichTextWidget."""
+    return FieldWidget(field, CellRichTextWidget(request))
+
+
 class IInfocardComplexField(Interface):
     arg_title = schema.TextLine(
         title=_("infocard_complex_field_title", "Label"),
@@ -39,3 +65,4 @@ class IInfocardComplexField(Interface):
         default=u"",
         required=False,
     )
+    form.widget(arg_value=CellRichTextFieldWidget)

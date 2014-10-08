@@ -66,7 +66,7 @@ class Form(SchemaForm):
 
     schema = IInfocardcontainerSearchForm
 
-    label = u"Search form"
+    label = u""
     description = u""
 
     table_fields = [
@@ -90,9 +90,8 @@ class Form(SchemaForm):
             if not data.get('recipient') in infocard.recipients:
                 return False
         if data.get('text'):
-            infocard_view = api.content.get_view(infocard, self.request, 'infocard_view')  # noqa
-            searched_text = infocard_view.searched_text
-            if not data.get('text') in infocard_view.searched_text:
+            infocard_view = api.content.get_view('view', infocard, self.request)  # noqa
+            if not data.get('text').lower() in infocard_view.searched_text:
                 return False
         return True
 

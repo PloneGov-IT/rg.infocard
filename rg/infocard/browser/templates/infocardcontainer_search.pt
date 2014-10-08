@@ -5,9 +5,17 @@
       i18n:domain="plone"
       metal:use-macro="context/main_template/macros/master">
 
+    <metal:block metal:fill-slot="top_slot"
+                 tal:define="foo python:request.set('disable_plone.leftcolumn', 1);
+                             foo python:request.set('disable_plone.rightcolumn', 1);
+                            ">
+    </metal:block>
     <metal:block metal:fill-slot="style_slot">
       <link rel='stylesheet' tal:attributes="href string:${portal_url}/++resource++rg.infocard/css/infocardcontainer_search.css">
     </metal:block>
+    <!--metal:block metal:fill-slot="javascript_head_slot">
+      <script tal:attributes="src string:${portal_url}/++resource++rg.infocard/scripts/infocardcontainer_search.js"></script>
+    </metal:block-->
 
     <metal:block fill-slot="main">
         <h1 class="documentFirstHeading" tal:content="view/label | nothing" />
@@ -33,10 +41,11 @@
                 <tbody>
                   <tal:block tal:repeat="item view/results">
                     <tr tal:define="oddrow repeat/item/odd;">
-                      <td><a href="#"
-                            tal:define="tooltip_class python:item['description'] and 'sistemi-tooltip' or ''"
+                      <td><a
+                            data-rg-infocard-overlay=""
+                            href="#"
                             tal:attributes="href item/url;
-                                            class string:state-${item/review_state} ${tooltip_class};
+                                            class string:state-${item/review_state};
                                             title item/description"
                             tal:content="item/title"
                             >Item title</a></td>

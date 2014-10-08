@@ -22,4 +22,36 @@
       directory="static"
       />
 
+    <adapter
+      for="Products.CMFCore.interfaces.IFolderish
+           Products.CMFDefault.interfaces.ICMFDefaultSkin
+           plone.dexterity.interfaces.IDexterityFTI"
+      provides="zope.publisher.interfaces.browser.IBrowserPage"
+      factory=".infocardcontainer.AddView"
+      name="infocardcontainer"
+      />
+
+    <browser:page
+      for="..models.infocardcontainer.IInfocardcontainer"
+      name="edit"
+      class=".infocardcontainer.EditView"
+      permission="cmf.ModifyPortalContent"
+      />
+
+    <adapter
+      for="Products.CMFCore.interfaces.IFolderish
+           Products.CMFDefault.interfaces.ICMFDefaultSkin
+           plone.dexterity.interfaces.IDexterityFTI"
+      provides="zope.publisher.interfaces.browser.IBrowserPage"
+      factory=".infocard.AddView"
+      name="infocard"
+      />
+
+    <browser:page
+      for="..models.infocard.IInfocard"
+      name="edit"
+      class=".infocard.EditView"
+      permission="cmf.ModifyPortalContent"
+      />
+
 </configure>

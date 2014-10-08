@@ -1,0 +1,10 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    i18n_domain="rg.infocard">
+
+  <subscriber
+    for="..models.infocard.IInfocard zope.lifecycleevent.IObjectModifiedEvent"
+    handler=".infocard.modified"
+    />
+
+</configure>

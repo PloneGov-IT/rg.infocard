@@ -16,7 +16,8 @@ def InfocardLocations(context):
     from rg.infocard.models.infocardcontainer import Infocardcontainer
     for obj in context.aq_chain:
         if isinstance(obj, Infocardcontainer):
-            values = set(obj.locations)
+            values = set([x.strip() for x in obj.locations if x.strip()])
+            values = sorted(values)
             [terms.append(SimpleTerm(value)) for value in values]
     terms.sort(key=lambda x: x.title)
     return SimpleSafeVocabulary(terms)

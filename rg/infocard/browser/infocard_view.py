@@ -1,12 +1,29 @@
 # -*- coding: utf-8 -*-
 from Products.Five.browser import BrowserView
 from plone import api
+from plone.app.textfield.interfaces import ITransformer
 from plone.memoize.view import memoize
 
 
 class View(BrowserView):
     ''' Custom view and methods for infocard
     '''
+    @property
+    @memoize
+    def authors(self):
+        ''' Show the authors for this infocard
+        '''
+        return ", ".join(
+            sorted(getattr(self.context, 'infocard_authors', ''))
+        )
+
+    @property
+    @memoize
+    def modified(self):
+        ''' Show the authors for this infocard
+        '''
+        return self.context.modified()
+
     @property
     @memoize
     def public_infos(self):
@@ -35,7 +52,7 @@ class View(BrowserView):
         if api.user.is_anonymous():
             return self.public_infos
         else:
-            return self.private_infos
+            return self.context.informations
 
     @property
     @memoize
@@ -43,10 +60,12 @@ class View(BrowserView):
         ''' The text searched
         '''
         parts = [
-            self.title,
-            self.description
+            self.context.title,
+            self.context.description
         ]
+        transformer = ITransformer(self.context)
         parts.extend([
-            x['arg_value'] for x in self.allowed_infos
+            transformer(x['arg_value'], 'text/plain')
+            for x in self.allowed_infos
         ])
-        return u" ".join(parts)
+        return u" ".join(set(u" ".join(parts).lower().split()))
