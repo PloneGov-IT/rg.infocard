@@ -1,6 +1,32 @@
 # -*- coding: utf-8 -*-
+from Products.CMFPlone.utils import safe_unicode
+from base64 import encodestring
 from rg.infocard import rg_infocard_logger as logger
-from zope.schema.vocabulary import SimpleVocabulary
+from unicodedata import normalize
+from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
+import re
+
+_punct_re = re.compile(r'[\t !"#$%&\'()*\-/<=>?@\[\\\]^_`{|},.:]+')
+
+
+def slugify(text, delim=u'-'):
+    """ ASCII-only slug."""
+    result = []
+    for word in _punct_re.split(safe_unicode(text.lower())):
+        word = normalize('NFKD', word).encode('ascii', 'ignore')
+        if word:
+            result.append(word)
+    return unicode(delim.join(result))
+
+
+def safe_term(value):
+    ''' Fix unicode terms using base64 encodestring
+    '''
+    return SimpleTerm(
+        encodestring(value.encode('utf8')).strip(),
+        encodestring(value.encode('utf8')).strip(),
+        value
+    )
 
 
 class SimpleSafeVocabulary(SimpleVocabulary):
