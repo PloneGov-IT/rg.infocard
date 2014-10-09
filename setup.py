@@ -36,6 +36,7 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
+        'collective.js.datatables',
         'collective.z3cform.datagridfield',
         'five.grok',
         'five.pt',
