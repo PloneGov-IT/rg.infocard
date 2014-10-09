@@ -23,7 +23,7 @@ def safe_term(value):
     ''' Fix unicode terms using base64 encodestring
     '''
     return SimpleTerm(
-        encodestring(value.encode('utf8')).strip(),
+        value.encode('utf8'),
         encodestring(value.encode('utf8')).strip(),
         value
     )

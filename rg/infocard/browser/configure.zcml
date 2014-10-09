@@ -2,6 +2,7 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
     i18n_domain="rg.infocard">
 
     <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
@@ -53,5 +54,12 @@
       class=".infocard.EditView"
       permission="cmf.ModifyPortalContent"
       />
+
+    <z3c:widgetTemplate
+      mode="input"
+      widget="..models.base.ICellRichTextWidget"
+      layer="z3c.form.interfaces.IFormLayer"
+      template="templates/cell_rich_text_widget_input.pt"
+    />
 
 </configure>

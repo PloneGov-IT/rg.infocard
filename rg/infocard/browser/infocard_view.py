@@ -22,14 +22,14 @@ class View(BrowserView):
     def locations(self):
         ''' Show the authors for this infocard
         '''
-        return u", ".join(sorted(self.context.locations))
+        return ", ".join(sorted(self.context.locations))
 
     @property
     @memoize
     def recipients(self):
         ''' Show the authors for this infocard
         '''
-        return u", ".join(sorted(self.context.recipients))
+        return ", ".join(sorted(self.context.recipients))
 
     @property
     @memoize
