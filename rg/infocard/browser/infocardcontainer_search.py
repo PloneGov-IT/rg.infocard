@@ -14,7 +14,12 @@ from zope.interface import invariant, Invalid
 
 class IInfocardcontainerSearchForm(Schema):
     """ Define form fields """
-
+    text = schema.TextLine(
+        title=__(
+            'label_search_text',
+        ),
+        required=False,
+    )
     location = schema.Choice(
         title=_(
             'label_where_is_it',
@@ -29,13 +34,6 @@ class IInfocardcontainerSearchForm(Schema):
             u"For who is it?"
         ),
         source=InfocardRecipients,
-        required=False,
-    )
-    text = schema.TextLine(
-        title=_(
-            'label_search_text',
-            u"Search text"
-        ),
         required=False,
     )
 
@@ -72,11 +70,19 @@ class Form(SchemaForm):
     table_fields = [
         {
             'id': 'title',
-            'label': _('title', u'Title'),
+            'label': __('title'),
         },
         {
             'id': 'description',
-            'label': _('description', u'Description'),
+            'label': __('description'),
+        },
+        {
+            'id': 'locations',
+            'label': _('label_where_is_it'),
+        },
+        {
+            'id': 'recipients',
+            'label': _('label_for_who_is_it'),
         },
     ]
 
@@ -104,27 +110,31 @@ class Form(SchemaForm):
         results = []
         for infocard in infocards:
             if self.accept_infocard(infocard, data):
+                infocard_view = api.content.get_view('view', infocard, self.request)  # noqa
                 results.append(
                     {
                         'review_state': api.content.get_state(infocard),
                         'url': infocard.absolute_url,
                         'title': infocard.title,
                         'description': infocard.description,
+                        'locations': infocard_view.locations,
+                        'recipients': infocard_view.recipients,
                     },
                 )
         sorted(results, key=lambda x: x['title'])
         return results
 
-    @button.buttonAndHandler(__('action_search', u'Search'))
+    @button.buttonAndHandler(__('label_search', u'Search'))
     def handleSearch(self, action):
         self.searching = True
         data, errors = self.extractData()
         if errors:
             self.status = self.formErrorsMessage
+            self.results = []
             return
         self.results = self.search_results(data)
 
-    @button.buttonAndHandler(__('action_cancel', u'Cancel'))
+    @button.buttonAndHandler(__('label_cancel', u'Cancel'))
     def handleCancel(self, action):
         """User cancelled. Redirect back to the front page.
         """

@@ -31,18 +31,18 @@
             <th>Cos'è</th>
             <td tal:content="here/description"></td>
           </tr>
-          <tr tal:condition="here/locations">
+          <tr tal:condition="view/locations">
             <th>Dov'è</th>
-            <td tal:content="python:', '.join(here.locations)"></td>
+            <td tal:content="view/locations"></td>
           </tr>
-          <tr tal:condition="here/recipients">
+          <tr tal:condition="view/recipients">
             <th>A chi si rivolge</th>
-            <td tal:content="python:', '.join(here.recipients)"></td>
+            <td tal:content="view/recipients"></td>
           </tr>
           <tal:for repeat="info view/allowed_infos">
             <tr>
               <th tal:content="info/arg_title"></th>
-              <td tal:content="structure info/arg_value/output"></td>
+              <td tal:content="structure info/arg_value/output|info/arg_value"></td>
             </tr>
           </tal:for>
         </table>
