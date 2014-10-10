@@ -81,5 +81,6 @@ class View(BrowserView):
         parts.extend([
             transformer(x['arg_value'], 'text/plain')
             for x in self.allowed_infos
+            if x['arg_value']
         ])
         return u" ".join(set(u" ".join(parts).lower().split()))

@@ -3,8 +3,9 @@
 #formfield-form-widgets-recipients {
   float:left;
   clear:none;
-  width: 40%;
-  padding-right: 10%;
+  width: 47%;
+  padding-right: 1%;
+  margin-right: 1%;
 }
 
 #formfield-form-widgets-locations textarea,
@@ -26,4 +27,7 @@
 
 div.error {
   font-size: inherit;
+}
+.ploneSkin .mceStatusbar a.mceResize {
+  background: none;
 }

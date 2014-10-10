@@ -8,13 +8,17 @@
         function init_textarea(idx, element) {
             var edit, show_box;
             element = jQuery(element);
-            edit = jQuery('<img>').attr({src: portal_url+"/edit.png"}).css({float: 'left'});
+            edit = jQuery('<img>').attr(
+                {
+                    src: portal_url+"/edit.png",
+                    'data-fire-mce': ''
+                }).css({float: 'left'});
             show_box = jQuery('<div>').html(element.text());
             element.after(show_box);
             element.after(edit);
             if (element.html()) {
                 element.addClass('hiddenStructure');
-            };
+            }
             edit.click(
                 function(evt) {
                     jQuery.ajax({
@@ -34,7 +38,17 @@
                 }
             );
         }
-        return jQuery('[data-rg-infocard-richtext]').each(init_textarea);
+        jQuery('[data-rg-infocard-richtext]').each(init_textarea);
+
+        function handle_new_row(evt, dgf, row) {
+            row.find('[data-fire-mce]').remove();
+            row.find('[data-rg-infocard-richtext]').each(init_textarea);
+        }
+        // Bind all DGF handlers on the page
+        $(document.body).delegate(
+                ".datagridwidget-table-view", "afteraddrow afteraddrowauto",
+            handle_new_row
+        );
     }
     jQuery(document).ready(textareas);
 }(jQuery));
