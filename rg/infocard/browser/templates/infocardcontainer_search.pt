@@ -19,7 +19,7 @@
 
     <metal:block fill-slot="content-core">
         <div id="content-core">
-          <div tal:content="structure here/introduction/output">
+          <div tal:condition="here/introduction" tal:content="structure here/introduction/output">
             Rich text field for infocard container
           </div>
           <div class="visualClear"></div>
