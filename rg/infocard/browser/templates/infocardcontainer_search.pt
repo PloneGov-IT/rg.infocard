@@ -17,10 +17,12 @@
       <script tal:attributes="src string:${portal_url}/++resource++rg.infocard/scripts/infocardcontainer_search.js"></script>
     </metal:block>
 
-    <metal:block fill-slot="main">
-        <h1 class="documentFirstHeading" tal:content="view/label | nothing" />
-
+    <metal:block fill-slot="content-core">
         <div id="content-core">
+          <div tal:content="structure here/introduction/output">
+            Rich text field for infocard container
+          </div>
+          <div class="visualClear"></div>
           <metal:block use-macro="context/@@ploneform-macros/titlelessform" />
           <tal:searching tal:condition="view/searching|nothing">
             <div class="visualClear"></div>

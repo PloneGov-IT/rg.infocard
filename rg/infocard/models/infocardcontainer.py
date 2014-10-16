@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from .base import IInfocardComplexField, InfocardDataGridFieldFactory
 from collective.z3cform.datagridfield import DictRow
+from plone.app.textfield import RichText
 from plone.dexterity.content import Container
 from plone.directives import form
 from plone.supermodel.model import Schema
@@ -11,6 +12,19 @@ from zope import schema
 
 class IInfocardcontainer(Schema):
     form.model('infocardcontainer.xml')
+
+    introduction = RichText(
+        title=_(
+            'label_introduction',
+            u"Introduction"
+        ),
+        description=_(
+            'help_search_introduction',
+            (
+                u"This text will appear before the container search form"
+            )
+        ),
+    )
 
     locations = schema.List(
         title=_(
