@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-10-16 10:15+0000\n"
+"POT-Creation-Date: 2014-10-16 15:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,18 +36,23 @@ msgid "edit_infocardcontainer_help"
 msgstr ""
 
 #. Default: "Insert one location per line. They will be proposed in the location field of the infocards"
-#: ./models/infocardcontainer.py:20
+#: ./models/infocardcontainer.py:34
 msgid "help_available_locations"
 msgstr ""
 
 #. Default: "Insert one recipient per line. They will be proposed in the recipient field of the infocards"
-#: ./models/infocardcontainer.py:39
+#: ./models/infocardcontainer.py:53
 msgid "help_available_recipients"
 msgstr ""
 
 #. Default: "The informartions listed below will be used as a default for the new infocard"
-#: ./models/infocardcontainer.py:58
+#: ./models/infocardcontainer.py:72
 msgid "help_default_infos"
+msgstr ""
+
+#. Default: "This text will appear before the container search form"
+#: ./models/infocardcontainer.py:21
+msgid "help_search_introduction"
 msgstr ""
 
 #. Default: "Public?"
@@ -67,7 +72,7 @@ msgstr ""
 
 #. Default: "Info"
 #: ./models/infocard.py:45
-#: ./models/infocardcontainer.py:66
+#: ./models/infocardcontainer.py:80
 msgid "infocard_info"
 msgstr ""
 
@@ -77,17 +82,17 @@ msgid "label_at_least_one_search_parameter"
 msgstr ""
 
 #. Default: "Available locations"
-#: ./models/infocardcontainer.py:16
+#: ./models/infocardcontainer.py:30
 msgid "label_available_locations"
 msgstr ""
 
-#. Default: "Recipients"
-#: ./models/infocardcontainer.py:35
+#. Default: "Available recipients"
+#: ./models/infocardcontainer.py:49
 msgid "label_available_recipients"
 msgstr ""
 
 #. Default: "List of default informations"
-#: ./models/infocardcontainer.py:54
+#: ./models/infocardcontainer.py:68
 msgid "label_default_infos"
 msgstr ""
 
@@ -99,6 +104,11 @@ msgstr ""
 #. Default: "Informations"
 #: ./models/infocard.py:40
 msgid "label_informations"
+msgstr ""
+
+#. Default: "Introduction"
+#: ./models/infocardcontainer.py:17
+msgid "label_introduction"
 msgstr ""
 
 #. Default: "Locations"
@@ -117,12 +127,12 @@ msgid "label_where_is_it"
 msgstr ""
 
 #. Default: "Location"
-#: ./models/infocardcontainer.py:29
+#: ./models/infocardcontainer.py:43
 msgid "location"
 msgstr ""
 
 #. Default: "Recipient"
-#: ./models/infocardcontainer.py:48
+#: ./models/infocardcontainer.py:62
 msgid "recipient"
 msgstr ""
 
