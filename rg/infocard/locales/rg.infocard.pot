@@ -1,0 +1,128 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2014-10-16 10:15+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: rg.infocard\n"
+
+#: ./profiles/default/types/infocard.xml
+msgid "Infocard"
+msgstr ""
+
+#: ./profiles/default/types/infocardcontainer.xml
+msgid "Infocardcontainer"
+msgstr ""
+
+#. Default: "Configure an infocard."
+#: ./browser/infocard.py:16
+msgid "edit_infocard_help"
+msgstr ""
+
+#. Default: "Configure a container for infocards. The default informations added here will be used as a template for the new infocards"
+#: ./browser/infocardcontainer.py:16
+msgid "edit_infocardcontainer_help"
+msgstr ""
+
+#. Default: "Insert one location per line. They will be proposed in the location field of the infocards"
+#: ./models/infocardcontainer.py:20
+msgid "help_available_locations"
+msgstr ""
+
+#. Default: "Insert one recipient per line. They will be proposed in the recipient field of the infocards"
+#: ./models/infocardcontainer.py:39
+msgid "help_available_recipients"
+msgstr ""
+
+#. Default: "The informartions listed below will be used as a default for the new infocard"
+#: ./models/infocardcontainer.py:58
+msgid "help_default_infos"
+msgstr ""
+
+#. Default: "Public?"
+#: ./models/base.py:59
+msgid "infocard_complex_field_public"
+msgstr ""
+
+#. Default: "Label"
+#: ./models/base.py:54
+msgid "infocard_complex_field_title"
+msgstr ""
+
+#. Default: "Value"
+#: ./models/base.py:64
+msgid "infocard_complex_field_value"
+msgstr ""
+
+#. Default: "Info"
+#: ./models/infocard.py:45
+#: ./models/infocardcontainer.py:66
+msgid "infocard_info"
+msgstr ""
+
+#. Default: "You should specify at least one search parameter"
+#: ./browser/infocardcontainer_search.py:45
+msgid "label_at_least_one_search_parameter"
+msgstr ""
+
+#. Default: "Available locations"
+#: ./models/infocardcontainer.py:16
+msgid "label_available_locations"
+msgstr ""
+
+#. Default: "Recipients"
+#: ./models/infocardcontainer.py:35
+msgid "label_available_recipients"
+msgstr ""
+
+#. Default: "List of default informations"
+#: ./models/infocardcontainer.py:54
+msgid "label_default_infos"
+msgstr ""
+
+#. Default: "For who is it?"
+#: ./browser/infocardcontainer_search.py:32
+msgid "label_for_who_is_it"
+msgstr ""
+
+#. Default: "Informations"
+#: ./models/infocard.py:40
+msgid "label_informations"
+msgstr ""
+
+#. Default: "Locations"
+#: ./models/infocard.py:18
+msgid "label_locations"
+msgstr ""
+
+#. Default: "Recipients"
+#: ./models/infocard.py:29
+msgid "label_recipients"
+msgstr ""
+
+#. Default: "Where is it?"
+#: ./browser/infocardcontainer_search.py:24
+msgid "label_where_is_it"
+msgstr ""
+
+#. Default: "Location"
+#: ./models/infocardcontainer.py:29
+msgid "location"
+msgstr ""
+
+#. Default: "Recipient"
+#: ./models/infocardcontainer.py:48
+msgid "recipient"
+msgstr ""
+

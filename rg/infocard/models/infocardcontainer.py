@@ -14,8 +14,16 @@ class IInfocardcontainer(Schema):
 
     locations = schema.List(
         title=_(
-            'label_locations',
-            u"Locations"
+            'label_available_locations',
+            u"Available locations"
+        ),
+        description=_(
+            'help_available_locations',
+            (
+                u"Insert one location per line. "
+                u"They will be proposed "
+                u"in the location field of the infocards"
+            )
         ),
         value_type=schema.TextLine(
             title=_(u"location", "Location")
@@ -25,8 +33,16 @@ class IInfocardcontainer(Schema):
     )
     recipients = schema.Tuple(
         title=_(
-            'label_recipients',
-            u"Recipients"
+            'label_available_recipients',
+            u"Available recipients"
+        ),
+        description=_(
+            'help_available_recipients',
+            (
+                u"Insert one recipient per line. "
+                u"They will be proposed "
+                u"in the recipient field of the infocards"
+            )
         ),
         value_type=schema.TextLine(
             title=_(u"recipient", "Recipient")
@@ -38,6 +54,13 @@ class IInfocardcontainer(Schema):
         title=_(
             'label_default_infos',
             u"List of default informations"
+        ),
+        description=_(
+            'help_default_infos',
+            (
+                u"The informartions listed below "
+                u"will be used as a default for the new infocard"
+            )
         ),
         value_type=DictRow(
             title=_(u"infocard_info", "Info"),

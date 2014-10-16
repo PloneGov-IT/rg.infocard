@@ -78,11 +78,17 @@ class Form(SchemaForm):
         },
         {
             'id': 'locations',
-            'label': _('label_where_is_it'),
+            'label': _(
+                'label_where_is_it',
+                u"Where is it?"
+            ),
         },
         {
             'id': 'recipients',
-            'label': _('label_for_who_is_it'),
+            'label': _(
+                'label_for_who_is_it',
+                u"For who is it?"
+            ),
         },
     ]
 
