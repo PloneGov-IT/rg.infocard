@@ -7,4 +7,9 @@
     handler=".infocard.modified"
     />
 
+  <subscriber
+    for="..models.infocard.IInfocard zope.lifecycleevent.IObjectCreatedEvent"
+    handler=".infocard.modified"
+    />
+
 </configure>
