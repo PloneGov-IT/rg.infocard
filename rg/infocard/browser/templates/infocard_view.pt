@@ -23,7 +23,7 @@
             <th>Aggiornata al</th>
             <td tal:content="python:toLocalizedTime(view.modified, long_format=1)"></td>
           </tr>
-          <tr>
+          <tr tal:condition="not:isanon">
             <th>Autori</th>
             <td tal:content="view/authors"></td>
           </tr>
