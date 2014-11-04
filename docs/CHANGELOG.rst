@@ -4,8 +4,8 @@ Changelog
 =========
 
 
-0.1 (unreleased)
-----------------
+0.9.0 (2014-11-04)
+------------------
 
 - Initial release.
   [YOUR NAME HERE]
