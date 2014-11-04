@@ -1,2 +1,6 @@
 graft rg
+graft bocs
 include *.cfg *.rst *.in
+exclude .travis.yml
+exclude Makefile
+
