@@ -17,7 +17,7 @@ long_description = "\n\n".join((
 
 setup(
     name='rg.infocard',
-    version='0.9.1',
+    version='0.9.2.dev0',
     description="rg.infocard",
     long_description=long_description,
     # Get more from http://pypi.python.org/pypi?%3Aaction=list_classifiers
