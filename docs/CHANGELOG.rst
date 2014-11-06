@@ -3,7 +3,7 @@
 Changelog
 =========
 
-0.9.1 (unreleased)
+0.9.1 (2014-11-06)
 ------------------
 
 - Fix TinyMCE initialization.
