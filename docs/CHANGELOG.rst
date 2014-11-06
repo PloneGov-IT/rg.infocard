@@ -9,7 +9,6 @@ Changelog
 - Fix TinyMCE initialization.
   [ale-rt]
 
-
 0.9.0 (2014-11-04)
 ------------------
 
