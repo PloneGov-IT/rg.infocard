@@ -1,6 +1,6 @@
 /*globals jQuery, document, portal_url */
 /*jslint sloppy: true, vars: true, white: true, maxerr: 50, indent: 4 */
-(function (jQuery) {
+(function(jQuery) {
     /*
      * Add tinymce when needed
      */
@@ -8,11 +8,12 @@
         function init_textarea(idx, element) {
             var edit, show_box;
             element = jQuery(element);
-            edit = jQuery('<img>').attr(
-                {
-                    src: portal_url+"/edit.png",
-                    'data-fire-mce': ''
-                }).css({float: 'left'});
+            edit = jQuery('<img>').attr({
+                src: portal_url + "/edit.png",
+                'data-fire-mce': ''
+            }).css({
+                float: 'left'
+            });
             show_box = jQuery('<div>').html(element.text());
             element.after(show_box);
             element.after(edit);
@@ -22,7 +23,7 @@
             edit.click(
                 function(evt) {
                     jQuery.ajax({
-                        url: portal_url + '/@@tinymce-jsonconfiguration?field=',
+                        url: portal_url + '/@@tinymce-jsonconfiguration?field=' + encodeURI(element.attr('name')),
                         success: function(data) {
                             element.removeClass('hiddenStructure');
                             element.attr({
@@ -30,23 +31,23 @@
                             });
                             element.addClass('mce_editable');
                             element.addClass('pat-tinymce');
-                            window.initTinyMCE(document);
+                            window.initTinyMCE(element.parent(), {});
                             edit.remove();
                             show_box.remove();
                         }
-                    })
+                    });
                 }
             );
         }
         jQuery('[data-rg-infocard-richtext]').each(init_textarea);
 
         function handle_new_row(evt, dgf, row) {
-            row.find('[data-fire-mce]').remove();
-            row.find('[data-rg-infocard-richtext]').each(init_textarea);
-        }
-        // Bind all DGF handlers on the page
-        $(document.body).delegate(
-                ".datagridwidget-table-view", "afteraddrow afteraddrowauto",
+                row.find('[data-fire-mce]').remove();
+                row.find('[data-rg-infocard-richtext]').each(init_textarea);
+            }
+            // Bind all DGF handlers on the page
+        jQuery(document.body).delegate(
+            ".datagridwidget-table-view", "afteraddrow afteraddrowauto",
             handle_new_row
         );
     }
