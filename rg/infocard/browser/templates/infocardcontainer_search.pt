@@ -54,7 +54,7 @@
                             tal:content="item/title"
                             >Item title</a></td>
                       <td tal:content="item/description">description</td>
-                      <td tal:content="item/locations">locations</td>
+                      <td tal:content="item/servicetypes">servicetypes</td>
                       <td tal:content="item/recipients">description</td>
                     </tr>
                   </tal:block>

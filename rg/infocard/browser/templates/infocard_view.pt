@@ -31,9 +31,9 @@
             <th>Cos'è</th>
             <td tal:content="here/description"></td>
           </tr>
-          <tr tal:condition="view/locations">
+          <tr tal:condition="view/servicetypes">
             <th>Dov'è</th>
-            <td tal:content="view/locations"></td>
+            <td tal:content="view/servicetypes"></td>
           </tr>
           <tr tal:condition="view/recipients">
             <th>A chi si rivolge</th>

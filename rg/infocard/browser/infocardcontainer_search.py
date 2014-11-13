@@ -1,31 +1,34 @@
 # -*- coding: utf-8 -*-
+from .. import rg_infocard_msgfactory as _
 from ..models.infocardcontainer import IInfocardcontainer
+from ..vocs.infocard_recipients import InfocardRecipients
+from ..vocs.infocard_servicetypes import InfocardServicetypes
 from Products.CMFPlone import PloneMessageFactory as __
 from five import grok
 from plone import api
-from plone.directives.form import Schema, SchemaForm
-from rg.infocard import rg_infocard_msgfactory as _
-from rg.infocard.vocs.infocard_locations import InfocardLocations
-from rg.infocard.vocs.infocard_recipients import InfocardRecipients
+from plone.directives.form import Schema
+from plone.directives.form import SchemaForm
 from z3c.form import button
 from zope import schema
-from zope.interface import invariant, Invalid
+from zope.interface import Invalid
+from zope.interface import invariant
 
 
 class IInfocardcontainerSearchForm(Schema):
     """ Define form fields """
     text = schema.TextLine(
-        title=__(
+        title=_(
             'label_search_text',
+            u'Search text'
         ),
         required=False,
     )
-    location = schema.Choice(
+    servicetype = schema.Choice(
         title=_(
-            'label_where_is_it',
-            u"Where is it?"
+            'label_servicetype',
+            u"Service type"
         ),
-        source=InfocardLocations,
+        source=InfocardServicetypes,
         required=False,
     )
     recipient = schema.Choice(
@@ -39,7 +42,7 @@ class IInfocardcontainerSearchForm(Schema):
 
     @invariant
     def at_least_one(data):
-        if data.location or data.recipient or data.text:
+        if data.servicetype or data.recipient or data.text:
             return
         raise Invalid(
             _(
@@ -77,7 +80,7 @@ class Form(SchemaForm):
             'label': __('description'),
         },
         {
-            'id': 'locations',
+            'id': 'servicetypes',
             'label': _(
                 'label_where_is_it',
                 u"Where is it?"
@@ -95,8 +98,8 @@ class Form(SchemaForm):
     def accept_infocard(self, infocard, data):
         ''' Given the data in the parameters filter the infocard
         '''
-        if data.get('location'):
-            if not data.get('location') in infocard.locations:
+        if data.get('servicetype'):
+            if not data.get('servicetype') in infocard.servicetypes:
                 return False
         if data.get('recipient'):
             if not data.get('recipient') in infocard.recipients:
@@ -123,7 +126,7 @@ class Form(SchemaForm):
                         'url': infocard.absolute_url,
                         'title': infocard.title,
                         'description': infocard.description,
-                        'locations': infocard_view.locations,
+                        'servicetypes': infocard_view.servicetypes,
                         'recipients': infocard_view.recipients,
                     },
                 )

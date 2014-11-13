@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-10-16 15:21+0000\n"
+"POT-Creation-Date: 2014-11-13 10:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,18 +32,18 @@ msgstr "Configura una scheda informativa"
 msgid "edit_infocardcontainer_help"
 msgstr "Configura un contenitore per le schede informative. L'elenco delle informazioni da utilizzare come modello sarà utilizzato nella creazione di nuove schede informative"
 
-#. Default: "Insert one location per line. They will be proposed in the location field of the infocards"
-#: ./models/infocardcontainer.py:34
-msgid "help_available_locations"
-msgstr "Inserisci una località per riga. Saranno selezionabili nel campo località delle schede informative"
-
 #. Default: "Insert one recipient per line. They will be proposed in the recipient field of the infocards"
-#: ./models/infocardcontainer.py:53
+#: ./models/infocardcontainer.py:54
 msgid "help_available_recipients"
 msgstr "Inserisci un destinatario per riga. Saranno selezionabili nel campo destinatari delle schede informative"
 
+#. Default: "Insert one service type per line. They will be proposed in the service type field of the infocards"
+#: ./models/infocardcontainer.py:34
+msgid "help_available_servicetypes"
+msgstr "Inserisci una tipologia di servizio per riga. Saranno selezionabili nel campo tipologie di servizio delle schede informative"
+
 #. Default: "The informartions listed below will be used as a default for the new infocard"
-#: ./models/infocardcontainer.py:72
+#: ./models/infocardcontainer.py:73
 msgid "help_default_infos"
 msgstr "Le informazioni elencate di seguito saranno utilizzate come modello per le nuove schede informative"
 
@@ -69,32 +69,32 @@ msgstr "Valore"
 
 #. Default: "Info"
 #: ./models/infocard.py:45
-#: ./models/infocardcontainer.py:80
+#: ./models/infocardcontainer.py:81
 msgid "infocard_info"
 msgstr "Informazione"
 
 #. Default: "You should specify at least one search parameter"
-#: ./browser/infocardcontainer_search.py:45
+#: ./browser/infocardcontainer_search.py:48
 msgid "label_at_least_one_search_parameter"
 msgstr "Dovresti specificare almeno un parametro di ricerca"
 
-#. Default: "Available locations"
-#: ./models/infocardcontainer.py:30
-msgid "label_available_locations"
-msgstr "Località disponibili"
-
 #. Default: "Available recipients"
-#: ./models/infocardcontainer.py:49
+#: ./models/infocardcontainer.py:50
 msgid "label_available_recipients"
 msgstr "Destinatari disponibili"
 
+#. Default: "Available service types"
+#: ./models/infocardcontainer.py:30
+msgid "label_available_servicetypes"
+msgstr "Tipologie di servizio disponibili"
+
 #. Default: "List of default informations"
-#: ./models/infocardcontainer.py:68
+#: ./models/infocardcontainer.py:69
 msgid "label_default_infos"
 msgstr "Elenco delle informazioni da utilizzare come modello"
 
 #. Default: "For who is it?"
-#: ./browser/infocardcontainer_search.py:32
+#: ./browser/infocardcontainer_search.py:35
 msgid "label_for_who_is_it"
 msgstr "Per chi?"
 
@@ -108,28 +108,37 @@ msgstr "Informazioni"
 msgid "label_introduction"
 msgstr "Introduzione"
 
-#. Default: "Locations"
-#: ./models/infocard.py:18
-msgid "label_locations"
-msgstr "Località"
-
 #. Default: "Recipients"
 #: ./models/infocard.py:29
 msgid "label_recipients"
 msgstr "Destinatari"
 
+#. Default: "Search text"
+#: ./browser/infocardcontainer_search.py:20
+msgid "label_search_text"
+msgstr "Ricerca nel testo"
+
+#. Default: "Service type"
+#: ./browser/infocardcontainer_search.py:27
+msgid "label_servicetype"
+msgstr "Tipologia di servizio"
+
+#. Default: "Service types"
+#: ./models/infocard.py:18
+msgid "label_servicetypes"
+msgstr "Tipologie di servizio"
+
 #. Default: "Where is it?"
-#: ./browser/infocardcontainer_search.py:24
+#: ./browser/infocardcontainer_search.py:84
 msgid "label_where_is_it"
 msgstr "Dov'è?"
 
-#. Default: "Location"
-#: ./models/infocardcontainer.py:43
-msgid "location"
-msgstr "Località"
-
 #. Default: "Recipient"
-#: ./models/infocardcontainer.py:62
+#: ./models/infocardcontainer.py:63
 msgid "recipient"
 msgstr "Destinatario"
 
+#. Default: "Service type"
+#: ./models/infocardcontainer.py:43
+msgid "service_type"
+msgstr "Tipologia di servizio"

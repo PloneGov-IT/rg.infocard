@@ -26,25 +26,26 @@ class IInfocardcontainer(Schema):
         ),
     )
 
-    locations = schema.List(
+    servicetypes = schema.List(
         title=_(
-            'label_available_locations',
-            u"Available locations"
+            'label_available_servicetypes',
+            u"Available service types"
         ),
         description=_(
-            'help_available_locations',
+            'help_available_servicetypes',
             (
-                u"Insert one location per line. "
+                u"Insert one service type per line. "
                 u"They will be proposed "
-                u"in the location field of the infocards"
+                u"in the service type field of the infocards"
             )
         ),
         value_type=schema.TextLine(
-            title=_(u"location", "Location")
+            title=_(u"service_type", "Service type")
         ),
         default=[],
         required=True,
     )
+
     recipients = schema.Tuple(
         title=_(
             'label_available_recipients',

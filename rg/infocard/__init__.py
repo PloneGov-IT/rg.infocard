@@ -3,8 +3,10 @@
 from logging import getLogger
 from zope.i18nmessageid import MessageFactory
 
-rg_infocard_msgfactory = MessageFactory('rg.infocard')
-rg_infocard_logger = getLogger('rg.infocard')
+PRODUCT_ID = 'rg.infocard'
+
+rg_infocard_msgfactory = MessageFactory(PRODUCT_ID)
+rg_infocard_logger = getLogger(PRODUCT_ID)
 
 
 def initialize(context):

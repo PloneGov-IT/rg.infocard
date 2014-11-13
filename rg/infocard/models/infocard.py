@@ -5,7 +5,7 @@ from plone.supermodel.model import Schema
 from plone.dexterity.content import Container
 from plone.directives import form
 from rg.infocard import rg_infocard_msgfactory as _
-from rg.infocard.vocs.infocard_locations import InfocardLocations
+from rg.infocard.vocs.infocard_servicetypes import InfocardServicetypes
 from rg.infocard.vocs.infocard_recipients import InfocardRecipients
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
 from zope.interface import implementer
@@ -14,13 +14,13 @@ from zope import schema
 
 class IInfocard(Schema):
     form.model('infocard.xml')
-    locations = schema.Tuple(
+    servicetypes = schema.Tuple(
         title=_(
-            'label_locations',
-            u"Locations"
+            'label_servicetypes',
+            u"Service types"
         ),
         value_type=schema.Choice(
-            source=InfocardLocations
+            source=InfocardServicetypes
         ),
         default=(),
         required=True,
@@ -50,7 +50,7 @@ class IInfocard(Schema):
         missing_value=[]
     )
     form.widget(informations=InfocardDataGridFieldFactory)
-    form.widget(locations=CheckBoxFieldWidget)
+    form.widget(servicetypes=CheckBoxFieldWidget)
     form.widget(recipients=CheckBoxFieldWidget)
 
 

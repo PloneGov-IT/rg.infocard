@@ -1,4 +1,10 @@
+exclude *
 graft rg
-prune buildout.d
+include *.cfg
+include *.in
+include *.py
+include *.rst
+include *.yml
+include Makefile
+recursive-include buildout.d *.cfg *.py
 recursive-include docs *
-include Makefile *.cfg *.rst *.in *.yml

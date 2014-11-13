@@ -19,10 +19,10 @@ class View(BrowserView):
 
     @property
     @memoize
-    def locations(self):
+    def servicetypes(self):
         ''' Show the authors for this infocard
         '''
-        return ", ".join(sorted(self.context.locations))
+        return ", ".join(sorted(self.context.servicetypes))
 
     @property
     @memoize

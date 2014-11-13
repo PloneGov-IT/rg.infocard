@@ -26,7 +26,7 @@ This content type is supposed to contain infocards.
 Beside normal Plone content fields (title, description, rich text),
 it has some configurable parameters to define:
 
-- Locations
+- Service types
 - Recipients
 - A template for the contained infocard
 
@@ -65,15 +65,15 @@ a new Infocard.
   :target: http://blog.redturtle.it/pypi-images/rg.infocard/add-infocard.png
 
 The available options
-for the locations and recipients fields
+for the service types and recipients fields
 are controlled by the homonymous fields of the container.
 
-Changing Location and recipients fields on the container **has effect** on
+Changing service types and recipients fields on the container **has effect** on
 
 The Informations datagrid default to the value of
 the homonymous fields of the container.
 
-Changing the locations and recipients fields on the container
+Changing the service types and recipients fields on the container
 **has effect** on the already created infocards.
 
 Changing the informations field on the container

@@ -5,16 +5,16 @@ from zope.schema.interfaces import IContextSourceBinder
 
 
 @grok.provider(IContextSourceBinder)
-def InfocardLocations(context):
+def InfocardServicetypes(context):
     '''
-    Get the locations from the parent infocardcontainer
+    Get the servicetypes from the parent infocardcontainer
 
     :param context: a Plone object
     '''
     from rg.infocard.models.infocardcontainer import Infocardcontainer
     for obj in context.aq_chain:
         if isinstance(obj, Infocardcontainer):
-            values = set([x.strip() for x in obj.locations if x.strip()])
+            values = set([x.strip() for x in obj.servicetypes if x.strip()])
             values = sorted(values)
             terms = map(safe_term, values)
             return SimpleSafeVocabulary(terms)
