@@ -9,16 +9,11 @@
     <metal:block metal:fill-slot="style_slot">
       <link rel='stylesheet' tal:attributes="href string:${portal_url}/++resource++rg.infocard/css/infocard.css">
     </metal:block>
-    <metal:content-title metal:fill-slot="content-title"></metal:content-title>
     <metal:content-description metal:fill-slot="content-description"></metal:content-description>
     <metal:main fill-slot="content-core">
       <metal:content-core define-macro="content-core">
         <table tal:define="isanon context/@@plone_portal_state/anonymous;
                            toLocalizedTime nocall: context/@@plone/toLocalizedTime;">
-          <tr>
-            <th i18n:domain="plone" i18n:translate="title">Title</th>
-            <td tal:content="here/title"></td>
-          </tr>
           <tr>
             <th>Aggiornata al</th>
             <td tal:content="python:toLocalizedTime(view.modified, long_format=1)"></td>
@@ -30,14 +25,6 @@
           <tr>
             <th>Cos'è</th>
             <td tal:content="here/description"></td>
-          </tr>
-          <tr tal:condition="view/servicetypes">
-            <th>Dov'è</th>
-            <td tal:content="view/servicetypes"></td>
-          </tr>
-          <tr tal:condition="view/recipients">
-            <th>A chi si rivolge</th>
-            <td tal:content="view/recipients"></td>
           </tr>
           <tal:for repeat="info view/allowed_infos">
             <tr>
