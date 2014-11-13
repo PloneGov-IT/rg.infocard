@@ -6,6 +6,7 @@ Changelog
 0.9.2 (unreleased)
 ------------------
 
+- Search form method is now get (#57)
 - Exclude infocards from navigation (#56)
 - Modified infocard view (#54, #55)
 - Infocard have no more a location field but a servicetype one (#53)

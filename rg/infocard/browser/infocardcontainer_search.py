@@ -67,6 +67,7 @@ class Form(SchemaForm):
 
     schema = IInfocardcontainerSearchForm
 
+    method = "get"
     label = u""
     description = u""
 
