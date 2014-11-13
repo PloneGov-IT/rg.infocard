@@ -70,3 +70,4 @@ class Infocard(Container):
     '''
     Infocard class
     '''
+    exclude_from_nav = True

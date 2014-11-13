@@ -19,3 +19,4 @@ def upgrade(context):
         if hasattr(obj, 'locations'):
             obj.servicetypes = obj.locations
             delattr(obj, 'locations')
+            obj.reindexObject()
