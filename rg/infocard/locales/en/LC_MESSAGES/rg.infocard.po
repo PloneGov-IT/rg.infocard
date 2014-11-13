@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-11-13 10:49+0000\n"
+"POT-Creation-Date: 2014-11-13 11:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -124,13 +124,9 @@ msgid "label_servicetype"
 msgstr ""
 
 #. Default: "Service types"
+#: ./browser/infocardcontainer_search.py:84
 #: ./models/infocard.py:18
 msgid "label_servicetypes"
-msgstr ""
-
-#. Default: "Where is it?"
-#: ./browser/infocardcontainer_search.py:84
-msgid "label_where_is_it"
 msgstr ""
 
 #. Default: "Recipient"

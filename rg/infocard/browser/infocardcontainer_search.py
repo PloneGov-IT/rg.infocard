@@ -82,8 +82,8 @@ class Form(SchemaForm):
         {
             'id': 'servicetypes',
             'label': _(
-                'label_where_is_it',
-                u"Where is it?"
+                'label_servicetypes',
+                u"Service types"
             ),
         },
         {
