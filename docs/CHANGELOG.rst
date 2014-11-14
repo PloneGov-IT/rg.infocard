@@ -3,7 +3,7 @@
 Changelog
 =========
 
-0.9.2 (unreleased)
+0.9.2 (2014-11-14)
 ------------------
 
 - Search form method is now get (#57)
