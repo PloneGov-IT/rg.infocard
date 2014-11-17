@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-11-13 11:11+0000\n"
+"POT-Creation-Date: 2014-11-18 09:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,6 +14,14 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
+#: ./portlets/search.py:58
+msgid "Add Infocard search portlet"
+msgstr "Aggiungi portlet di ricerca schede informative"
+
+#: ./portlets/search.py:67
+msgid "Edit Recent Portlet"
+msgstr "Modifica portlet di ricerca schede informative"
+
 #: ./profiles/default/types/infocard.xml
 msgid "Infocard"
 msgstr "Scheda informativa"
@@ -21,6 +29,14 @@ msgstr "Scheda informativa"
 #: ./profiles/default/types/infocardcontainer.xml
 msgid "Infocardcontainer"
 msgstr "Contenitore di schede informative"
+
+#: ./portlets/search.py:25
+msgid "Target folder"
+msgstr "Contenitore delle schede"
+
+#: ./portlets/search.py:59
+msgid "This portlet displays a search form."
+msgstr "Questa portlet mostra un form di ricerca su un contenitore di schede informative"
 
 #. Default: "Configure an infocard."
 #: ./browser/infocard.py:16
@@ -51,6 +67,11 @@ msgstr "Le informazioni elencate di seguito saranno utilizzate come modello per 
 #: ./models/infocardcontainer.py:21
 msgid "help_search_introduction"
 msgstr "Questo testo apparirà prima della maschera di ricerca"
+
+#. Default: "Choose the folder to use for searches. If left blank, the search will use the current context as the starting folder"
+#: ./portlets/search.py:26
+msgid "help_target"
+msgstr "Scegli il contenitore di schede informative da utilizzare"
 
 #. Default: "Public?"
 #: ./models/base.py:59
@@ -124,10 +145,15 @@ msgid "label_servicetype"
 msgstr "Tipologia di servizio"
 
 #. Default: "Service types"
-#: ./browser/infocardcontainer_search.py:84
+#: ./browser/infocardcontainer_search.py:85
 #: ./models/infocard.py:18
 msgid "label_servicetypes"
 msgstr "Tipologie di servizio"
+
+#. Default: "Portlet name"
+#: ./portlets/search.py:20
+msgid "name"
+msgstr "Nome"
 
 #. Default: "Recipient"
 #: ./models/infocardcontainer.py:63

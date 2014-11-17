@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-11-13 11:11+0000\n"
+"POT-Creation-Date: 2014-11-18 09:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,12 +17,28 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: rg.infocard\n"
 
+#: ./portlets/search.py:58
+msgid "Add Infocard search portlet"
+msgstr ""
+
+#: ./portlets/search.py:67
+msgid "Edit Recent Portlet"
+msgstr ""
+
 #: ./profiles/default/types/infocard.xml
 msgid "Infocard"
 msgstr ""
 
 #: ./profiles/default/types/infocardcontainer.xml
 msgid "Infocardcontainer"
+msgstr ""
+
+#: ./portlets/search.py:25
+msgid "Target folder"
+msgstr ""
+
+#: ./portlets/search.py:59
+msgid "This portlet displays a search form."
 msgstr ""
 
 #. Default: "Configure an infocard."
@@ -53,6 +69,11 @@ msgstr ""
 #. Default: "This text will appear before the container search form"
 #: ./models/infocardcontainer.py:21
 msgid "help_search_introduction"
+msgstr ""
+
+#. Default: "Choose the folder to use for searches. If left blank, the search will use the current context as the starting folder"
+#: ./portlets/search.py:26
+msgid "help_target"
 msgstr ""
 
 #. Default: "Public?"
@@ -127,9 +148,14 @@ msgid "label_servicetype"
 msgstr ""
 
 #. Default: "Service types"
-#: ./browser/infocardcontainer_search.py:84
+#: ./browser/infocardcontainer_search.py:85
 #: ./models/infocard.py:18
 msgid "label_servicetypes"
+msgstr ""
+
+#. Default: "Portlet name"
+#: ./portlets/search.py:20
+msgid "name"
 msgstr ""
 
 #. Default: "Recipient"

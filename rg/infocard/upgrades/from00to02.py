@@ -6,7 +6,7 @@ from plone import api
 @upgrade_version_decorator('2')
 def upgrade(context):
     '''
-    Install quintagroup.formlib.captcha and perform a workflow update
+    Migrate the contents after schema modifications
     '''
     pc = api.portal.get_tool('portal_catalog')
     brains = pc(
