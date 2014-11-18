@@ -14,7 +14,7 @@ from zope import schema
 
 class ISearchPortlet(IPortletDataProvider):
 
-    """A portlet that allows contextual search and extend search portlet base
+    """A portlet that allows searching in an infocard container
     """
     name = schema.TextLine(
         title=_(u"name", default=u"Portlet name"),
@@ -22,11 +22,10 @@ class ISearchPortlet(IPortletDataProvider):
     )
 
     target = schema.Choice(
-        title=_(u"Target folder"),
+        title=_(u"Target infocard container"),
         description=_(
             "help_target",
-            u"Choose the folder to use for searches. If left blank, "
-            u"the search will use the current context as the starting folder"
+            u"Choose the infocard container in which you can search"
         ),
         source=SearchableTextSourceBinder({'portal_type': 'infocardcontainer'})
     )
@@ -35,11 +34,7 @@ class ISearchPortlet(IPortletDataProvider):
 @implementer(ISearchPortlet)
 class Assignment(base.Assignment):
 
-    """Portlet assignment.
-
-    This is what is actually managed through the portlets UI and associated
-    with columns.
-    """
+    """Portlet assignment."""
 
     def __init__(self, name='', target=None):
         self.name = name
