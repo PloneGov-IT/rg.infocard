@@ -1,13 +1,14 @@
+
 :orphan:
 
 Changelog
 =========
 
-0.9.3 (unreleased)
+0.9.3 (2014-11-18)
 ------------------
 
-- Nothing changed yet.
-
+- Added a portlet to serach in an infocard container.
+[ale-rt]
 
 0.9.2 (2014-11-14)
 ------------------
