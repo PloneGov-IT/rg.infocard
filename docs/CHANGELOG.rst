@@ -7,14 +7,14 @@ Changelog
 0.9.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- The search portlet can optionally show filters on recipient and service type
+  [ale-rt]
 
 0.9.3 (2014-11-18)
 ------------------
 
-- Added a portlet to serach in an infocard container.
-[ale-rt]
+- Added a portlet to search in an infocard container.
+  [ale-rt]
 
 0.9.2 (2014-11-14)
 ------------------

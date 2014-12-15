@@ -1,6 +1,8 @@
 # coding=utf-8
 from .. import rg_infocard_logger as logger
 from .. import rg_infocard_msgfactory as _
+from ..vocs.infocard_servicetypes import InfocardServicetypes
+from ..vocs.infocard_recipients import InfocardRecipients
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone import api
 from plone.app.portlets.portlets import base
@@ -18,7 +20,8 @@ class ISearchPortlet(IPortletDataProvider):
     """
     name = schema.TextLine(
         title=_(u"name", default=u"Portlet name"),
-        required=False
+        default=u'Infocard search portlet',
+        required=False,
     )
 
     target = schema.Choice(
@@ -30,14 +33,30 @@ class ISearchPortlet(IPortletDataProvider):
         source=SearchableTextSourceBinder({'portal_type': 'infocardcontainer'})
     )
 
+    display_filters = schema.Bool(
+        title=_('label_display_filters', u"Display filters"),
+        description=_(
+            "help_display_filters",
+            u'By default the portlet displays one input '
+            u'to search on infocard text. '
+            u'If you select this checkbox two additional selects will appear. '
+            u'They will allow to search in the fields '
+            u'"Service type" and "Recipient".'
+        ),
+        default=False,
+    )
+
 
 @implementer(ISearchPortlet)
 class Assignment(base.Assignment):
 
     """Portlet assignment."""
 
-    def __init__(self, name='', target=None):
+    display_filters = False
+
+    def __init__(self, name='', target=None, display_filters=False):
         self.name = name
+        self.display_filters = display_filters
         self.target = target
 
     @property
@@ -49,7 +68,8 @@ class Assignment(base.Assignment):
 
 
 class AddForm(base.AddForm):
-    form_fields = form.Fields(ISearchPortlet)
+    schema = ISearchPortlet
+    form_fields = form.Fields(schema)
     label = _(u"Add Infocard search portlet")
     description = _(u"This portlet displays a search form.")
 
@@ -58,7 +78,8 @@ class AddForm(base.AddForm):
 
 
 class EditForm(base.EditForm):
-    form_fields = form.Fields(ISearchPortlet)
+    schema = ISearchPortlet
+    form_fields = form.Fields(schema)
     label = _(u"Edit Recent Portlet")
     description = _(u"This portlet displays a search form.")
 
@@ -89,3 +110,25 @@ class Renderer(base.Renderer):
         except:
             msg = "Unable to find target: %s" % self.data.target
             logger.exception(msg)
+
+    @property
+    @memoize
+    def display_filters(self):
+        ''' Check out the configuration to see if we can display additional
+        checkboxes for filtering on recipents and service types
+        '''
+        return self.data.display_filters
+
+    @property
+    @memoize
+    def recipients(self):
+        ''' Get the recipient vocabulary for target
+        '''
+        return InfocardRecipients(self.target)
+
+    @property
+    @memoize
+    def servicetypes(self):
+        ''' Get the recipient vocabulary for target
+        '''
+        return InfocardServicetypes(self.target)
