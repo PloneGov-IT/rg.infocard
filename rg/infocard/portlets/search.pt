@@ -38,7 +38,7 @@
               </div>
               <div class="field" data-fieldname="form.widgets.recipient" id="formfield-form-widgets-recipient">
                 <label for="form-widgets-recipient" class="horizontal" style="display:inline-block;width:48%" i18n:translate="label_for_who_is_it">
-                  Per chi?
+                  For who is it?
                 </label>
                 <select name="form.widgets.recipient:list" class="select-widget choice-field" style="width:48%" size="1">
                   <option value="--NOVALUE--">-</option>
@@ -56,10 +56,10 @@
       </div>
       <div tal:condition="view/text_after" tal:content="structure view/text_after"></div>
       <div class="visualClear"></div>
-      <dd class="portletFooter">
-          <span class="portletBottomLeft"></span>
-          <span class="portletBottomRight"></span>
-      </dd>
+    </dd>
+    <dd class="portletFooter">
+        <span class="portletBottomLeft"></span>
+        <span class="portletBottomRight"></span>
     </dd>
   </dl>
 </html>

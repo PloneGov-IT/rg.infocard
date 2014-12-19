@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-11-18 09:17+0000\n"
+"POT-Creation-Date: 2014-12-19 11:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,11 +14,11 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./portlets/search.py:58
+#: ./portlets/search.py:103
 msgid "Add Infocard search portlet"
 msgstr "Aggiungi portlet di ricerca schede informative"
 
-#: ./portlets/search.py:67
+#: ./portlets/search.py:115
 msgid "Edit Recent Portlet"
 msgstr "Modifica portlet di ricerca schede informative"
 
@@ -30,13 +30,29 @@ msgstr "Scheda informativa"
 msgid "Infocardcontainer"
 msgstr "Contenitore di schede informative"
 
-#: ./portlets/search.py:25
-msgid "Target folder"
-msgstr "Contenitore delle schede"
+#: ./portlets/search.py:39
+msgid "Target infocard container"
+msgstr "Contenitore di schede informative su cui effettuare la ricerca"
 
-#: ./portlets/search.py:59
+#: ./portlets/search.py:67
+msgid "Text after search fields"
+msgstr "Testo dopo i campi di ricerca"
+
+#: ./portlets/search.py:61
+msgid "Text before search fields"
+msgstr "Testo prima dei campi di ricerca"
+
+#: ./portlets/search.py:104
 msgid "This portlet displays a search form."
 msgstr "Questa portlet mostra un form di ricerca su un contenitore di schede informative"
+
+#: ./portlets/search.py:68
+msgid "This text will appear after the search fields"
+msgstr "Questo testo appatirà dopo i campi di ricerca"
+
+#: ./portlets/search.py:62
+msgid "This text will appear before the search fields"
+msgstr "Questo testo appatirà prima dei campi di ricerca"
 
 #. Default: "Configure an infocard."
 #: ./browser/infocard.py:16
@@ -63,13 +79,23 @@ msgstr "Inserisci una tipologia di servizio per riga. Saranno selezionabili nel 
 msgid "help_default_infos"
 msgstr "Le informazioni elencate di seguito saranno utilizzate come modello per le nuove schede informative"
 
+#. Default: "By default the portlet displays one input to search on infocard text. If you select this checkbox two additional selects will appear. They will allow to search in the fields \"Service type\" and \"Recipient\"."
+#: ./portlets/search.py:49
+msgid "help_display_filters"
+msgstr "Mostra i filtri"
+
+#. Default: "If checked the portlet will display a title based on name"
+#: ./portlets/search.py:30
+msgid "help_display_title"
+msgstr "Mostra il nome"
+
 #. Default: "This text will appear before the container search form"
 #: ./models/infocardcontainer.py:21
 msgid "help_search_introduction"
 msgstr "Questo testo apparirà prima della maschera di ricerca"
 
-#. Default: "Choose the folder to use for searches. If left blank, the search will use the current context as the starting folder"
-#: ./portlets/search.py:26
+#. Default: "Choose the infocard container in which you can search"
+#: ./portlets/search.py:40
 msgid "help_target"
 msgstr "Scegli il contenitore di schede informative da utilizzare"
 
@@ -114,8 +140,19 @@ msgstr "Tipologie di servizio disponibili"
 msgid "label_default_infos"
 msgstr "Elenco delle informazioni da utilizzare come modello"
 
+#. Default: "Display filters"
+#: ./portlets/search.py:48
+msgid "label_display_filters"
+msgstr "Mostra i filtri"
+
+#. Default: "Display title"
+#: ./portlets/search.py:29
+msgid "label_display_title"
+msgstr "Mostra il nome"
+
 #. Default: "For who is it?"
 #: ./browser/infocardcontainer_search.py:35
+#: ./portlets/search.pt:40
 msgid "label_for_who_is_it"
 msgstr "Per chi?"
 
@@ -136,11 +173,13 @@ msgstr "Destinatari"
 
 #. Default: "Search text"
 #: ./browser/infocardcontainer_search.py:20
+#: ./portlets/search.pt:27
 msgid "label_search_text"
 msgstr "Ricerca nel testo"
 
 #. Default: "Service type"
 #: ./browser/infocardcontainer_search.py:27
+#: ./portlets/search.pt:31
 msgid "label_servicetype"
 msgstr "Tipologia di servizio"
 
@@ -151,7 +190,7 @@ msgid "label_servicetypes"
 msgstr "Tipologie di servizio"
 
 #. Default: "Portlet name"
-#: ./portlets/search.py:20
+#: ./portlets/search.py:23
 msgid "name"
 msgstr "Nome"
 
@@ -164,4 +203,3 @@ msgstr "Destinatario"
 #: ./models/infocardcontainer.py:43
 msgid "service_type"
 msgstr "Tipologia di servizio"
-

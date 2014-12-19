@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-11-18 09:17+0000\n"
+"POT-Creation-Date: 2014-12-19 11:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: rg.infocard\n"
 
-#: ./portlets/search.py:58
+#: ./portlets/search.py:103
 msgid "Add Infocard search portlet"
 msgstr ""
 
-#: ./portlets/search.py:67
+#: ./portlets/search.py:115
 msgid "Edit Recent Portlet"
 msgstr ""
 
@@ -33,12 +33,28 @@ msgstr ""
 msgid "Infocardcontainer"
 msgstr ""
 
-#: ./portlets/search.py:25
-msgid "Target folder"
+#: ./portlets/search.py:39
+msgid "Target infocard container"
 msgstr ""
 
-#: ./portlets/search.py:59
+#: ./portlets/search.py:67
+msgid "Text after search fields"
+msgstr ""
+
+#: ./portlets/search.py:61
+msgid "Text before search fields"
+msgstr ""
+
+#: ./portlets/search.py:104
 msgid "This portlet displays a search form."
+msgstr ""
+
+#: ./portlets/search.py:68
+msgid "This text will appear after the search fields"
+msgstr ""
+
+#: ./portlets/search.py:62
+msgid "This text will appear before the search fields"
 msgstr ""
 
 #. Default: "Configure an infocard."
@@ -66,13 +82,23 @@ msgstr ""
 msgid "help_default_infos"
 msgstr ""
 
+#. Default: "By default the portlet displays one input to search on infocard text. If you select this checkbox two additional selects will appear. They will allow to search in the fields \"Service type\" and \"Recipient\"."
+#: ./portlets/search.py:49
+msgid "help_display_filters"
+msgstr ""
+
+#. Default: "If checked the portlet will display a title based on name"
+#: ./portlets/search.py:30
+msgid "help_display_title"
+msgstr ""
+
 #. Default: "This text will appear before the container search form"
 #: ./models/infocardcontainer.py:21
 msgid "help_search_introduction"
 msgstr ""
 
-#. Default: "Choose the folder to use for searches. If left blank, the search will use the current context as the starting folder"
-#: ./portlets/search.py:26
+#. Default: "Choose the infocard container in which you can search"
+#: ./portlets/search.py:40
 msgid "help_target"
 msgstr ""
 
@@ -117,8 +143,19 @@ msgstr ""
 msgid "label_default_infos"
 msgstr ""
 
+#. Default: "Display filters"
+#: ./portlets/search.py:48
+msgid "label_display_filters"
+msgstr ""
+
+#. Default: "Display title"
+#: ./portlets/search.py:29
+msgid "label_display_title"
+msgstr ""
+
 #. Default: "For who is it?"
 #: ./browser/infocardcontainer_search.py:35
+#: ./portlets/search.pt:40
 msgid "label_for_who_is_it"
 msgstr ""
 
@@ -139,11 +176,13 @@ msgstr ""
 
 #. Default: "Search text"
 #: ./browser/infocardcontainer_search.py:20
+#: ./portlets/search.pt:27
 msgid "label_search_text"
 msgstr ""
 
 #. Default: "Service type"
 #: ./browser/infocardcontainer_search.py:27
+#: ./portlets/search.pt:31
 msgid "label_servicetype"
 msgstr ""
 
@@ -154,7 +193,7 @@ msgid "label_servicetypes"
 msgstr ""
 
 #. Default: "Portlet name"
-#: ./portlets/search.py:20
+#: ./portlets/search.py:23
 msgid "name"
 msgstr ""
 
