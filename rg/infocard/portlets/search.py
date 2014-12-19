@@ -75,13 +75,6 @@ class Assignment(base.Assignment):
 
     """Portlet assignment."""
 
-    name = u''
-    display_title = True
-    target = None,
-    display_filters = False
-    text_before = u""
-    text_after = u""
-
     def __init__(
         self,
         name=u'',
