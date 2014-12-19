@@ -8,6 +8,9 @@ Changelog
 ------------------
 
 - The search portlet can optionally show filters on recipient and service type
+- The search portlet can optionally omit title
+- The search portlet can optionally display a rich text before the search form
+- The search portlet can optionally display a rich text after the search form
   [ale-rt]
 
 0.9.3 (2014-11-18)

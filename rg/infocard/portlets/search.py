@@ -5,6 +5,7 @@ from ..vocs.infocard_servicetypes import InfocardServicetypes
 from ..vocs.infocard_recipients import InfocardRecipients
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone import api
+from plone.app.form.widgets.wysiwygwidget import WYSIWYGWidget
 from plone.app.portlets.portlets import base
 from plone.app.vocabularies.catalog import SearchableTextSourceBinder
 from plone.memoize.view import memoize
@@ -22,6 +23,16 @@ class ISearchPortlet(IPortletDataProvider):
         title=_(u"name", default=u"Portlet name"),
         default=u'Infocard search portlet',
         required=False,
+    )
+
+    display_title = schema.Bool(
+        title=_(u"label_display_title", default=u"Display title"),
+        description=_(
+            u"help_display_title",
+            u"If checked the portlet will display a title based on name"
+        ),
+        default=True,
+        required=True,
     )
 
     target = schema.Choice(
@@ -46,18 +57,46 @@ class ISearchPortlet(IPortletDataProvider):
         default=False,
     )
 
+    text_before = schema.Text(
+        title=_(u"Text before search fields"),
+        description=_(u"This text will appear before the search fields"),
+        required=False
+    )
+
+    text_after = schema.Text(
+        title=_(u"Text after search fields"),
+        description=_(u"This text will appear after the search fields"),
+        required=False
+    )
+
 
 @implementer(ISearchPortlet)
 class Assignment(base.Assignment):
 
     """Portlet assignment."""
 
+    name = u''
+    display_title = True
+    target = None,
     display_filters = False
+    text_before = u""
+    text_after = u""
 
-    def __init__(self, name='', target=None, display_filters=False):
+    def __init__(
+        self,
+        name=u'',
+        display_title=True,
+        target=None,
+        display_filters=False,
+        text_before=u"",
+        text_after=u""
+    ):
         self.name = name
-        self.display_filters = display_filters
+        self.display_title = display_title
         self.target = target
+        self.display_filters = display_filters
+        self.text_before = text_before
+        self.text_after = text_after
 
     @property
     def title(self):
@@ -68,20 +107,24 @@ class Assignment(base.Assignment):
 
 
 class AddForm(base.AddForm):
-    schema = ISearchPortlet
-    form_fields = form.Fields(schema)
     label = _(u"Add Infocard search portlet")
     description = _(u"This portlet displays a search form.")
+    schema = ISearchPortlet
+    form_fields = form.Fields(schema)
+    form_fields['text_after'].custom_widget = WYSIWYGWidget
+    form_fields['text_before'].custom_widget = WYSIWYGWidget
 
     def create(self, data):
         return Assignment(**data)
 
 
 class EditForm(base.EditForm):
-    schema = ISearchPortlet
-    form_fields = form.Fields(schema)
     label = _(u"Edit Recent Portlet")
     description = _(u"This portlet displays a search form.")
+    schema = ISearchPortlet
+    form_fields = form.Fields(schema)
+    form_fields['text_after'].custom_widget = WYSIWYGWidget
+    form_fields['text_before'].custom_widget = WYSIWYGWidget
 
 
 class Renderer(base.Renderer):
@@ -110,6 +153,27 @@ class Renderer(base.Renderer):
         except:
             msg = "Unable to find target: %s" % self.data.target
             logger.exception(msg)
+
+    @property
+    @memoize
+    def display_title(self):
+        ''' Check out the configuration to see if we can display title
+        '''
+        return self.data.display_title
+
+    @property
+    @memoize
+    def text_before(self):
+        ''' Display text before search fields
+        '''
+        return self.data.text_before
+
+    @property
+    @memoize
+    def text_after(self):
+        ''' Display text after search fields
+        '''
+        return self.data.text_after
 
     @property
     @memoize
