@@ -7,8 +7,8 @@ Changelog
 0.9.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Fix search portlet select
+  [ale-rt]
 
 0.9.4 (2014-12-19)
 ------------------

@@ -32,7 +32,7 @@
                 <select name="form.widgets.servicetype:list" class="select-widget choice-field" size="1" style="width:48%">
                   <option value="--NOVALUE--">-</option>
                   <tal:repeat repeat="servicetype view/servicetypes">
-                    <option tal:attributes="value servicetype/value" tal:content="servicetype/title">Casa</option>
+                    <option tal:attributes="value servicetype/token" tal:content="servicetype/title">Casa</option>
                   </tal:repeat>
                 </select>
               </div>
@@ -43,7 +43,7 @@
                 <select name="form.widgets.recipient:list" class="select-widget choice-field" style="width:48%" size="1">
                   <option value="--NOVALUE--">-</option>
                   <tal:repeat repeat="recipient view/recipients">
-                    <option tal:attributes="value recipient/value" tal:content="recipient/title">Casa</option>
+                    <option tal:attributes="value recipient/token" tal:content="recipient/title">Casa</option>
                   </tal:repeat>
                 </select>
               </div>
