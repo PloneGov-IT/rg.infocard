@@ -45,6 +45,7 @@ setup(
         'plone.api',
         'plone.app.dexterity [grok]',
         'plone.app.relationfield',
+        'plonetrick.csrfworkarounds',
         'setuptools',
         'z3c.jbot',
     ],

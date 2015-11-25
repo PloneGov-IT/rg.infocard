@@ -6,8 +6,9 @@ Changelog
 
 0.9.5 (unreleased)
 ------------------
-
-- Fix search portlet select
+- Fix: CSRF problem when getting TinyMCE configuration
+  (see https://github.com/plone/Products.TinyMCE/issues/125)
+- Fix: search portlet select
   [ale-rt]
 
 0.9.4 (2014-12-19)

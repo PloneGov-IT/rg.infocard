@@ -23,7 +23,7 @@
             edit.click(
                 function(evt) {
                     jQuery.ajax({
-                        url: portal_url + '/@@tinymce-jsonconfiguration?field=' + encodeURI(element.attr('name')),
+                        url: portal_url + '/@@tinymce-jsonconfiguration-csrf-free?field=' + encodeURI(element.attr('name')),
                         success: function(data) {
                             element.removeClass('hiddenStructure');
                             element.attr({
