@@ -4,6 +4,12 @@
 Changelog
 =========
 
+0.9.6 (unreleased)
+------------------
+
+- Nothing changed yet.
+
+
 0.9.5 (2015-11-25)
 ------------------
 - Fix: CSRF problem when getting TinyMCE configuration
