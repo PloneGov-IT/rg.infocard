@@ -17,13 +17,15 @@ long_description = "\n\n".join((
 
 setup(
     name='rg.infocard',
-    version='0.9.5.dev0',
+    version='0.9.5',
     description="rg.infocard",
     long_description=long_description,
     # Get more from http://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
         "Framework :: Plone",
         "Programming Language :: Python",
+        "Programming Language :: Python :: 2.6",
+        "Programming Language :: Python :: 2.7",
         "License :: OSI Approved :: GNU General Public License (GPL)",
     ],
     keywords='Plone',

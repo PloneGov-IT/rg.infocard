@@ -4,7 +4,7 @@
 Changelog
 =========
 
-0.9.5 (unreleased)
+0.9.5 (2015-11-25)
 ------------------
 - Fix: CSRF problem when getting TinyMCE configuration
   (see https://github.com/plone/Products.TinyMCE/issues/125)
