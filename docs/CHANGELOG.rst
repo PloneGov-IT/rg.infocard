@@ -7,7 +7,8 @@ Changelog
 0.9.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Removed five.pt
+  [daniele]
 
 
 0.9.5 (2015-11-25)
