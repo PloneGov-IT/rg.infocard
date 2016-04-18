@@ -4,7 +4,7 @@
 Changelog
 =========
 
-0.9.6 (unreleased)
+0.9.6 (2016-04-18)
 ------------------
 
 - Removed five.pt
