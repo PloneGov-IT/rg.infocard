@@ -7,8 +7,8 @@ Changelog
 0.9.7 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Removed memoize for portlet methods.
+  [daniele]
 
 0.9.6 (2016-04-18)
 ------------------
