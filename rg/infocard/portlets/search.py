@@ -8,7 +8,6 @@ from plone import api
 from plone.app.form.widgets.wysiwygwidget import WYSIWYGWidget
 from plone.app.portlets.portlets import base
 from plone.app.vocabularies.catalog import SearchableTextSourceBinder
-from plone.memoize.view import memoize
 from plone.portlets.interfaces import IPortletDataProvider
 from zope.formlib import form
 from zope.interface import implementer
@@ -126,7 +125,6 @@ class Renderer(base.Renderer):
     '''
     render = ViewPageTemplateFile('search.pt')
 
-    @memoize
     def available(self):
         '''
         The portlet will be available if the target is visible
@@ -137,7 +135,6 @@ class Renderer(base.Renderer):
         )
 
     @property
-    @memoize
     def target(self):
         ''' Get's the object related to the target
         '''
@@ -148,28 +145,24 @@ class Renderer(base.Renderer):
             logger.exception(msg)
 
     @property
-    @memoize
     def display_title(self):
         ''' Check out the configuration to see if we can display title
         '''
         return self.data.display_title
 
     @property
-    @memoize
     def text_before(self):
         ''' Display text before search fields
         '''
         return self.data.text_before
 
     @property
-    @memoize
     def text_after(self):
         ''' Display text after search fields
         '''
         return self.data.text_after
 
     @property
-    @memoize
     def display_filters(self):
         ''' Check out the configuration to see if we can display additional
         checkboxes for filtering on recipents and service types
@@ -177,14 +170,12 @@ class Renderer(base.Renderer):
         return self.data.display_filters
 
     @property
-    @memoize
     def recipients(self):
         ''' Get the recipient vocabulary for target
         '''
         return InfocardRecipients(self.target)
 
     @property
-    @memoize
     def servicetypes(self):
         ''' Get the recipient vocabulary for target
         '''
