@@ -4,6 +4,12 @@ from base64 import encodestring
 from rg.infocard import rg_infocard_logger as logger
 from unicodedata import normalize
 from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
+from zope.interface import implementer
+from zope.schema.interfaces import IVocabularyFactory
+from plone import api
+from zope.schema.vocabulary import SimpleTerm
+from zope.schema.vocabulary import SimpleVocabulary
+
 import re
 
 _punct_re = re.compile(r'[\t !"#$%&\'()*\-/<=>?@\[\\\]^_`{|},.:]+')
@@ -61,7 +67,29 @@ class SimpleSafeVocabulary(SimpleVocabulary):
         except LookupError:
             msg = self.not_found_msg(value)
             logger.warning(msg)
-        except:
+        except Exception:
             msg = self.generic_error_msg(value)
             logger.exception(msg)
         return fallback
+
+
+@implementer(IVocabularyFactory)
+class InfoCardContainerVocabulary(object):
+
+    def __call__(self, context=None):
+        infocardcontainer_list = api.content.find(
+            portal_type='infocardcontainer')
+
+        infocardcontainer_list = [x.getObject()
+                                  for x in infocardcontainer_list]
+
+        terms = [SimpleTerm(
+            value=x.UID(),
+            token=x.UID(),
+            title=x.title
+        ) for x in infocardcontainer_list]
+
+        return SimpleVocabulary(terms)
+
+
+InfoCardContainerVocabularyFactory = InfoCardContainerVocabulary()

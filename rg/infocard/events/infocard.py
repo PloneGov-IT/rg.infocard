@@ -11,7 +11,7 @@ def register_infocard_authors(obj):
     try:
         user = api.user.get_current()
         infocard_authors.add(user.fullname or user.getId())
-    except:
+    except Exception:
         msg = "problem getting author"
         logger.exception(msg)
     obj.infocard_authors = infocard_authors

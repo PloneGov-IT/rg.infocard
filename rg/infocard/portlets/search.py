@@ -7,10 +7,12 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone import api
 # from plone.app.form.widgets.wysiwygwidget import WYSIWYGWidget
 from plone.app.portlets.portlets import base
-from plone.app.vocabularies.catalog import SearchableTextSourceBinder
+# from plone.app.vocabularies.catalog import SearchableTextSourceBinder
+# from plone.app.vocabularies.catalog import CatalogSource
 from plone.portlets.interfaces import IPortletDataProvider
 from z3c.form import field
 from zope.interface import implementer
+from zope.interface import Interface
 from zope import schema
 from plone.app.z3cform.widget import RichTextFieldWidget
 
@@ -41,7 +43,8 @@ class ISearchPortlet(IPortletDataProvider):
             "help_target",
             u"Choose the infocard container in which you can search"
         ),
-        source=SearchableTextSourceBinder({'portal_type': 'infocardcontainer'})
+        vocabulary='rg.infocard.infocartcontainer.vocabulary',
+        required=False
     )
 
     display_filters = schema.Bool(
@@ -140,7 +143,7 @@ class Renderer(base.Renderer):
         ''' Get's the object related to the target
         '''
         try:
-            return api.portal.get().unrestrictedTraverse(self.data.target[1:])
+            return api.content.get(UID=self.data.target)
         except Exception:
             msg = "Unable to find target: %s" % self.data.target
             logger.exception(msg)

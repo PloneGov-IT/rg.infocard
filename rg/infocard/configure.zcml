@@ -19,6 +19,7 @@
     <include package=".events" />
     <include package=".portlets" />
     <include package=".upgrades" />
+    <include package=".vocs" />
 
     <!-- Register all components defined with grok -->
     <grok:grok package="." />
