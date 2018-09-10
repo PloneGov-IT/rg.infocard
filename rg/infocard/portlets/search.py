@@ -5,13 +5,14 @@ from ..vocs.infocard_servicetypes import InfocardServicetypes
 from ..vocs.infocard_recipients import InfocardRecipients
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone import api
-from plone.app.form.widgets.wysiwygwidget import WYSIWYGWidget
+# from plone.app.form.widgets.wysiwygwidget import WYSIWYGWidget
 from plone.app.portlets.portlets import base
 from plone.app.vocabularies.catalog import SearchableTextSourceBinder
 from plone.portlets.interfaces import IPortletDataProvider
-from zope.formlib import form
+from z3c.form import field
 from zope.interface import implementer
 from zope import schema
+from plone.app.z3cform.widget import RichTextFieldWidget
 
 
 class ISearchPortlet(IPortletDataProvider):
@@ -102,9 +103,9 @@ class AddForm(base.AddForm):
     label = _(u"Add Infocard search portlet")
     description = _(u"This portlet displays a search form.")
     schema = ISearchPortlet
-    form_fields = form.Fields(schema)
-    form_fields['text_after'].custom_widget = WYSIWYGWidget
-    form_fields['text_before'].custom_widget = WYSIWYGWidget
+    form_fields = field.Fields(schema)
+    form_fields['text_after'].custom_widget = RichTextFieldWidget
+    form_fields['text_before'].custom_widget = RichTextFieldWidget
 
     def create(self, data):
         return Assignment(**data)
@@ -114,9 +115,9 @@ class EditForm(base.EditForm):
     label = _(u"Edit Recent Portlet")
     description = _(u"This portlet displays a search form.")
     schema = ISearchPortlet
-    form_fields = form.Fields(schema)
-    form_fields['text_after'].custom_widget = WYSIWYGWidget
-    form_fields['text_before'].custom_widget = WYSIWYGWidget
+    form_fields = field.Fields(schema)
+    form_fields['text_after'].custom_widget = RichTextFieldWidget
+    form_fields['text_before'].custom_widget = RichTextFieldWidget
 
 
 class Renderer(base.Renderer):
@@ -140,7 +141,7 @@ class Renderer(base.Renderer):
         '''
         try:
             return api.portal.get().unrestrictedTraverse(self.data.target[1:])
-        except:
+        except Exception:
             msg = "Unable to find target: %s" % self.data.target
             logger.exception(msg)
 

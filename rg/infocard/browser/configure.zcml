@@ -25,7 +25,7 @@
 
     <adapter
       for="Products.CMFCore.interfaces.IFolderish
-           Products.CMFDefault.interfaces.ICMFDefaultSkin
+           rg.infocard.interfaces.IRgInfocardLayer
            plone.dexterity.interfaces.IDexterityFTI"
       provides="zope.publisher.interfaces.browser.IBrowserPage"
       factory=".infocardcontainer.AddView"
@@ -41,7 +41,7 @@
 
     <adapter
       for="Products.CMFCore.interfaces.IFolderish
-           Products.CMFDefault.interfaces.ICMFDefaultSkin
+           rg.infocard.interfaces.IRgInfocardLayer
            plone.dexterity.interfaces.IDexterityFTI"
       provides="zope.publisher.interfaces.browser.IBrowserPage"
       factory=".infocard.AddView"
