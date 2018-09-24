@@ -10,3 +10,4 @@ include
 lib
 parts
 var
+rg.infocard.egg-info
