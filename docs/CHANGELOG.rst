@@ -4,7 +4,7 @@
 Changelog
 =========
 
-0.9.8 (unreleased)
+0.9.8 (2018-09-24)
 ------------------
 
 - porting packege from p4 to p5
