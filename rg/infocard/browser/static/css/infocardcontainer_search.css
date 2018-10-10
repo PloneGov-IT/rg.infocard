@@ -49,14 +49,15 @@ div.field.error div.error:before {
 #content-core table.dataTable tr.even  td {
   background-color: #FFF;
 }
-.dataTables_filter {
+div.dataTables_wrapper .dataTables_filter {
   float: none;
   text-align: left;
   margin-top: 1em;
   margin-bottom: 0.5em;
 }
-.dataTables_filter input {
+div.dataTables_wrapper .dataTables_filter input {
   width:100%;
+  margin-left: 0;
 }
 #content a.link-overlay {
   border-bottom: none !important;
