@@ -12,8 +12,11 @@
 #formfield-form-widgets-recipients textarea {
   min-height:10em;
 }
+#formfield-form-widgets-informations {
+  clear: both;
+}
 
-.datagridwidget-table-view {
+table.datagridwidget-table-view {
   background:none;
 }
 .datagridwidget-block-edit-cell > div:first-child {
