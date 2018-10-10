@@ -22,3 +22,6 @@
 #content-core> table > tbody > tr > td > p:last-child {
   margin-bottom:0;
 }
+#content-core> table table {
+  font-size: 0.9em;
+}
