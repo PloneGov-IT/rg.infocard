@@ -18,5 +18,14 @@
     handler=".from00to03.upgrade"
     profile="rg.infocard:default"
   />
+  
+  <genericsetup:upgradeStep
+    title="Upgrade to version 4"
+    description="Reread pregistry.xml"
+    source="*"
+    destination="4"
+    handler=".from00to04.upgrade"
+    profile="rg.infocard:default"
+  />
 
 </configure>

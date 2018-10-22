@@ -7,7 +7,7 @@
       i18n:domain="rg.infocard">
   <body>
     <metal:block metal:fill-slot="style_slot">
-      <link rel='stylesheet' tal:attributes="href string:${portal_url}/++resource++rg.infocard/css/infocard.css">
+      <link rel='stylesheet' tal:attributes="href string:${portal_url}/++plone++rg.infocard/css/infocard.css">
     </metal:block>
     <metal:content-description metal:fill-slot="content-description"></metal:content-description>
     <metal:main fill-slot="content-core">

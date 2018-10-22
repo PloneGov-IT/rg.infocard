@@ -18,8 +18,14 @@
       />
 
     <!-- Publish static files -->
-    <browser:resourceDirectory
+    <!-- <browser:resourceDirectory
       name="rg.infocard"
+      directory="static"
+      /> -->
+      
+    <plone:static
+      name="rg.infocard"
+      type="plone"
       directory="static"
       />
 

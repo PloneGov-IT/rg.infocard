@@ -14,6 +14,7 @@ from zope.interface import Interface
 from zope import schema
 from zope.component import adapter
 from zope.interface import implementer
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 
 class InfocardDataGridField(BlockDataGridField):
@@ -38,6 +39,16 @@ class ICellRichTextWidget(IRichTextWidget):
 class CellRichTextWidget(RichTextWidget):
     ''' Custom Rich Text widget to be used in DG cells
     '''
+
+    # display_template = ViewPageTemplateFile(
+    #     "../browser/templates/cell_rich_text_widget_input.pt")
+    #
+    # def render(self):
+    #     if self.mode == DISPLAY_MODE:
+    #         template = self.display_template
+    #
+    #     return RichTextWidget.render(self)
+
     def wrapped_context(self):
         return self.form.parentForm.context
 

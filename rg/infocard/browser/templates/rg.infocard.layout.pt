@@ -4,18 +4,12 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       metal:use-macro="here/main_template/macros/master"
-      i18n:domain="plone">
+      i18n:domain="rg.infocard">
   <body>
     <metal:block metal:fill-slot="top_slot"
                  tal:define="foo python:request.set('disable_plone.leftcolumn', 1);
                              foo python:request.set('disable_plone.rightcolumn', 1);
                             ">
-    </metal:block>
-    <metal:block metal:fill-slot="style_slot">
-      <link rel='stylesheet' tal:attributes="href string:${portal_url}/++resource++rg.infocard/css/rg.infocard.edit.css">
-    </metal:block>
-    <metal:block metal:fill-slot="javascript_head_slot">
-      <script tal:attributes="src string:${portal_url}/++resource++rg.infocard/scripts/rg.infocard.edit.js"></script>
     </metal:block>
     <metal:main fill-slot="main">
         <metal:main-macro define-macro="main">
