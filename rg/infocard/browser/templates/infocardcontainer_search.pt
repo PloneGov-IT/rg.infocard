@@ -11,10 +11,10 @@
                             ">
     </metal:block>
     <metal:block metal:fill-slot="style_slot">
-      <link rel='stylesheet' tal:attributes="href string:${portal_url}/++resource++rg.infocard/css/infocardcontainer_search.css">
+      <link rel='stylesheet' tal:attributes="href string:${portal_url}/++plone++rg.infocard/css/infocardcontainer_search.css">
     </metal:block>
     <metal:block metal:fill-slot="javascript_head_slot">
-      <script tal:attributes="src string:${portal_url}/++resource++rg.infocard/scripts/infocardcontainer_search.js"></script>
+      <script tal:attributes="src string:${portal_url}/++plone++rg.infocard/scripts/infocardcontainer_search.js"></script>
     </metal:block>
 
     <metal:block fill-slot="content-core">

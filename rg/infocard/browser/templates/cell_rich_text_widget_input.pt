@@ -34,5 +34,5 @@
                    readonly view/readonly;
                    accesskey view/accesskey;
                    onselect view/onselect"
-   tal:content="view/value/output|view/value" />
+   tal:content="view/value/output|view/value" />   
 </html>

@@ -1,0 +1,22 @@
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+          i18n:domain="rg.infocard">
+                    
+  <records prefix="plone.resources/rg_infocard_edit"
+          interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="js">++plone++rg.infocard/scripts/rg.infocard.edit.js</value>
+    <value key="css">
+      <element>++plone++rg.infocard/css/rg.infocard.edit.css</element>
+    </value>
+  </records>
+  <records prefix="plone.bundles/rg_infocard_edit"
+          interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+    <value key="resources" purge="false">
+      <element>rg_infocard_edit</element>
+    </value>
+    <value key="enabled">True</value>
+    <value key="jscompilation">++plone++rg.inforcard/scripts/rg.infocard.edit.js</value>
+    <value key="csscompilation">++plone++rg.infocard/css/rg.infocard.edit.css</value>
+    <value key="compile">True</value>
+  </records>
+          
+</registry>
