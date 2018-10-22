@@ -8,6 +8,10 @@ Changelog
 ------------------
 
 - Fixed layout for Plone5 [fdelia]
+- Fixed rg.infocard edit and add view
+- Target field required in search portlet
+  [eikichi18]
+
 
 
 0.9.8 (2018-09-24)

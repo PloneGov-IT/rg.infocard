@@ -44,7 +44,7 @@ class ISearchPortlet(IPortletDataProvider):
             u"Choose the infocard container in which you can search"
         ),
         vocabulary='rg.infocard.infocartcontainer.vocabulary',
-        required=False
+        required=True
     )
 
     display_filters = schema.Bool(
