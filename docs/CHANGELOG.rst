@@ -4,7 +4,7 @@
 Changelog
 =========
 
-0.9.9 (unreleased)
+0.9.9 (2018-10-22)
 ------------------
 
 - Fixed layout for Plone5 [fdelia]
