@@ -7,7 +7,8 @@ Changelog
 0.9.10 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fixed searched_text function.
+  [eikichi18]
 
 
 0.9.9 (2018-10-22)
