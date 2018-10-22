@@ -78,9 +78,12 @@ class View(BrowserView):
             self.context.description
         ]
         transformer = ITransformer(self.context)
-        parts.extend([
-            transformer(x['arg_value'], 'text/plain')
-            for x in self.allowed_infos
-            if x['arg_value']
-        ])
+
+        for x in self.allowed_infos:
+            if x['arg_value']:
+                if isinstance(x['arg_value'], unicode):
+                    parts.append(x['arg_value'])
+                else:
+                    parts.append(transformer(x['arg_value'], 'text/plain'))
+
         return u" ".join(set(u" ".join(parts).lower().split()))
