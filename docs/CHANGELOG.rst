@@ -4,7 +4,7 @@
 Changelog
 =========
 
-0.9.10 (unreleased)
+0.9.10 (2018-10-22)
 -------------------
 
 - Fixed searched_text function.
