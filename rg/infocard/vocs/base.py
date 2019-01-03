@@ -3,7 +3,6 @@ from Products.CMFPlone.utils import safe_unicode
 from base64 import encodestring
 from rg.infocard import rg_infocard_logger as logger
 from unicodedata import normalize
-from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
 from zope.interface import implementer
 from zope.schema.interfaces import IVocabularyFactory
 from plone import api

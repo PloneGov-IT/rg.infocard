@@ -12,7 +12,6 @@ from plone.app.portlets.portlets import base
 from plone.portlets.interfaces import IPortletDataProvider
 from z3c.form import field
 from zope.interface import implementer
-from zope.interface import Interface
 from zope import schema
 from plone.app.z3cform.widget import RichTextFieldWidget
 

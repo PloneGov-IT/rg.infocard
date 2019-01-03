@@ -1,11 +1,8 @@
 # -*- coding: utf-8 -*-
-from Acquisition import ImplicitAcquisitionWrapper
-from UserDict import UserDict
 from collective.z3cform.datagridfield.blockdatagridfield import BlockDataGridField  # noqa
 from plone.app.textfield import RichText
 from plone.app.textfield.interfaces import IRichText
 from plone.app.textfield.widget import IRichTextWidget, RichTextWidget
-from plone.app.z3cform.utils import closest_content
 from plone.directives import form
 from rg.infocard import rg_infocard_msgfactory as _
 from z3c.form.interfaces import IFieldWidget, IFormLayer
@@ -14,7 +11,6 @@ from zope.interface import Interface
 from zope import schema
 from zope.component import adapter
 from zope.interface import implementer
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 
 class InfocardDataGridField(BlockDataGridField):
