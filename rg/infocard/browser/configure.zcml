@@ -17,12 +17,6 @@
       permission="zope2.View"
       />
 
-    <!-- Publish static files -->
-    <!-- <browser:resourceDirectory
-      name="rg.infocard"
-      directory="static"
-      /> -->
-      
     <plone:static
       name="rg.infocard"
       type="plone"

@@ -15,6 +15,10 @@ from zope import schema
 from zope.component import adapter
 from zope.interface import implementer
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from plone.supermodel.model import Schema
+from z3c.form.interfaces import DISPLAY_MODE
+from z3c.form.interfaces import HIDDEN_MODE
+from z3c.form.interfaces import INPUT_MODE
 
 
 class InfocardDataGridField(BlockDataGridField):
@@ -42,15 +46,20 @@ class CellRichTextWidget(RichTextWidget):
 
     # display_template = ViewPageTemplateFile(
     #     "../browser/templates/cell_rich_text_widget_input.pt")
-    #
+    dataPatTinymce = u"{\"relatedItems\": {\"vocabularyUrl\": \"@@getVocabulary?name=plone.app.vocabularies.Catalog\"}}"
+
     # def render(self):
-    #     if self.mode == DISPLAY_MODE:
+    #     if self.mode == INPUT_MODE:
     #         template = self.display_template
+    #         self.klass = u"pat-tinymce"
     #
     #     return RichTextWidget.render(self)
 
     def wrapped_context(self):
         return self.form.parentForm.context
+
+    def call_path(self, path, here):
+        return here.portal_skins.plone_wysiwyg.wysiwyg_support
 
 
 @adapter(IRichText, IFormLayer)
@@ -60,7 +69,7 @@ def CellRichTextFieldWidget(field, request):
     return FieldWidget(field, CellRichTextWidget(request))
 
 
-class IInfocardComplexField(Interface):
+class IInfocardComplexField(Schema):
     arg_title = schema.TextLine(
         title=_("infocard_complex_field_title", "Label"),
         default=u"",

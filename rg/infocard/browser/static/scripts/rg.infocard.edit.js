@@ -2,7 +2,7 @@
 /*jslint sloppy: true, vars: true, white: true, maxerr: 50, indent: 4 */
 require(['jquery', 'mockup-patterns-modal'], function(jQuery, Modal) {
     function textareas() {
-      
+
         function init_modal(self, a, idx){
           modal = new Modal(a, {
             position: 'center top',
@@ -19,7 +19,7 @@ require(['jquery', 'mockup-patterns-modal'], function(jQuery, Modal) {
                 '      </div>' +
                 '      <div class="<%= options.classBodyName %>">' +
                 '        <div class="<%= options.classPrependName %>"><%= prepend %></div> ' +
-                '        <textarea class="textarea-wrapper pat-tinymce">' +
+                '        <textarea class="textarea-wrapper pat-tinymce" data-pat-tinymce=\'{"relatedItems": {"vocabularyUrl": "@@getVocabulary?name=plone.app.vocabularies.Catalog"}}\'>' +
                 '          <div class="<%= options.classContentName %>"><%= content %></div>' +
                 '        </textarea>' +
                 '      </div>' +
@@ -32,10 +32,10 @@ require(['jquery', 'mockup-patterns-modal'], function(jQuery, Modal) {
                 '</div>'
             }
           });
-          modal.on('shown', function(e){  
-            jQuery('.textarea-button').on('click', function(e){                
+          modal.on('shown', function(e){
+            jQuery('.textarea-button').on('click', function(e){
               var value = tinymce.activeEditor.getContent();
-                                                                                
+
               // set new value
               var textarea = jQuery('#form-widgets-informations-'+ jQuery(e.target).data('index') +'-widgets-arg_value');
               textarea.val(value);
@@ -43,23 +43,23 @@ require(['jquery', 'mockup-patterns-modal'], function(jQuery, Modal) {
               var div = textarea.siblings('div:not(.label)');
               div.empty();
               div.append(jQuery(value));
-              
+
               jQuery('.plone-modal-close').click();
             });
           });
-                    
+
           return modal;
         }
-      
+
         function init_textarea(idx, element) {
             var a, edit, show_box;
-            
+
             if (jQuery(element).siblings('a.edit-textarea').length === 0){
-              element = jQuery(element);  
+              element = jQuery(element);
               a = jQuery('<a>').attr({
                 'href': "",
                 'class': "edit-textarea"
-              });         
+              });
               edit = 'Modifica';
               show_box = jQuery('<div>').html(element.text());
               element.after(show_box);
@@ -68,7 +68,7 @@ require(['jquery', 'mockup-patterns-modal'], function(jQuery, Modal) {
             }else{
               a = jQuery(element).siblings('a.edit-textarea')
             }
-                  
+
             modal = init_modal(this, a, idx);
         }
         jQuery('[data-rg-infocard-richtext]').each(init_textarea);
