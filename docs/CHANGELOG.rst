@@ -7,7 +7,8 @@ Changelog
 0.9.11 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fixed portlet title.
+  [eikichi18]
 
 
 0.9.10 (2018-10-22)

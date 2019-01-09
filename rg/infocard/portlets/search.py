@@ -12,7 +12,6 @@ from plone.app.portlets.portlets import base
 from plone.portlets.interfaces import IPortletDataProvider
 from z3c.form import field
 from zope.interface import implementer
-from zope.interface import Interface
 from zope import schema
 from plone.app.z3cform.widget import RichTextFieldWidget
 
@@ -153,6 +152,10 @@ class Renderer(base.Renderer):
         ''' Check out the configuration to see if we can display title
         '''
         return self.data.display_title
+
+    @property
+    def get_url(self):
+        return api.content.get(UID=self.data.target).absolute_url()
 
     @property
     def text_before(self):
